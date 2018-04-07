@@ -97,6 +97,14 @@ public class Block implements BlockInterface{
         return this.PortOut.value;
     }
     
+    public void connectPort1(Port outPort){
+        this.PortIn1 = outPort;
+    }
+    
+    public void connectPort2(Port outPort){
+        this.PortIn2 = outPort;
+    }
+    
     public static void main(String[] args) {
         System.out.println("Hello World!");
         
@@ -115,5 +123,23 @@ public class Block implements BlockInterface{
         Block b4 = new Block("p7",20,"p8",4,"out4",'/',7,7,7,7);
         b4.executeCalculation();
         System.out.println(b4.outputValue());
+        
+        Block b5 = new Block("in1","in2","out5",'+',7,7,7,7);
+        b5.connectPort1(b1.PortOut);
+        b5.connectPort2(b2.PortOut);
+        b5.executeCalculation();
+        System.out.println(b5.outputValue());
+        
+        Block b6 = new Block("in3","in4","out6",'+',7,7,7,7);
+        b6.connectPort1(b3.PortOut);
+        b6.connectPort2(b4.PortOut);
+        b6.executeCalculation();
+        System.out.println(b6.outputValue());
+        
+        Block b7 = new Block("in5","in6","out7",'+',7,7,7,7);
+        b7.connectPort1(b5.PortOut);
+        b7.connectPort2(b6.PortOut);
+        b7.executeCalculation();
+        System.out.println(b7.outputValue());
     }
 }

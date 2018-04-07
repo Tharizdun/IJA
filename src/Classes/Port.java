@@ -6,7 +6,7 @@ package Classes;
  */
 public class Port {
     protected String name;
-    public double value;
+    protected double value;
     
     public Port(String name){
         this.name = name;
