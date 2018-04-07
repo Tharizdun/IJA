@@ -93,4 +93,27 @@ public class Block implements BlockInterface{
             default:break;
         }
     }
+    public double outputValue(){
+        return this.PortOut.value;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        
+        Block b1 = new Block("p1",1,"p2",2,"out",'+',7,7,7,7);
+        b1.executeCalculation();
+        System.out.println(b1.outputValue());
+        
+        Block b2 = new Block("p3",10,"p4",5,"out2",'-',7,7,7,7);
+        b2.executeCalculation();
+        System.out.println(b2.outputValue());
+        
+        Block b3 = new Block("p5",3,"p6",4,"out3",'*',7,7,7,7);
+        b3.executeCalculation();
+        System.out.println(b3.outputValue());
+        
+        Block b4 = new Block("p7",20,"p8",4,"out4",'/',7,7,7,7);
+        b4.executeCalculation();
+        System.out.println(b4.outputValue());
+    }
 }

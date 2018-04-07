@@ -6,4 +6,5 @@ package Classes.Interface;
  */
 public interface BlockInterface {
     public void executeCalculation();
+    public double outputValue();
 }
