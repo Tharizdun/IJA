@@ -4,6 +4,8 @@ import Classes.Port;
 /**
  *
  * @author xzedni12
+ * 
+ * Rozhrani, ktere je implementovano Blokem
  */
 public interface BlockInterface {
     public void executeCalculation();

@@ -4,6 +4,8 @@ import Classes.Interface.BlockInterface;
 /**
  *
  * @author xzedni12
+ * 
+ * Jednoducha/konceptualni trida pro praci s bloky
  */
 public class Block implements BlockInterface{
     protected String name;

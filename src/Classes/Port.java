@@ -3,6 +3,8 @@ package Classes;
 /**
  *
  * @author xzedni12
+ * 
+ * Jednoducha implementace portu
  */
 public class Port {
     protected String name;
