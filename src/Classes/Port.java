@@ -2,7 +2,7 @@ package Classes;
 
 /**
  *
- * @author Modifikator
+ * @author xzedni12
  */
 public class Port {
     protected String name;
