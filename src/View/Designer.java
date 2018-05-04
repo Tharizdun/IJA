@@ -3,11 +3,12 @@ package View;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -18,8 +19,7 @@ import Classes.*;
 import java.io.File;
 
 public class Designer extends Application {
-    double orgSceneX, orgSceneY;
-    double orgTranslateX, orgTranslateY;
+    double InvokedX, InvokedY;
     Button NewButton;
     Button LoadButton;
     Button SaveButton;
@@ -85,13 +85,52 @@ public class Designer extends Application {
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(TopMenu);
 
+        ContextMenu context = new ContextMenu();
+
+        MenuItem mItem = new MenuItem("New Add block");
+        mItem.setOnAction(e ->
+        {
+            AddBlockSpec newAddBlock = new AddBlockSpec();
+
+            if (newAddBlock.Display()) {
+                AddBlock fuckBlock = new AddBlock(newAddBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(fuckBlock);
+                currentScheme.AddBlock(fuckBlock);
+
+                NeedSave = true;
+            }
+        });
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Sub block");
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Mul block");
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Div block");
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Distance block");
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Vector block");
+        context.getItems().add(mItem);
+
         design = new AnchorPane();
         design.setPrefSize(0, 0);
         design.setStyle("-fx-background-color: DeepSkyBlue");
         design.setOnMouseClicked(e ->
         {
             if (e.getButton() == MouseButton.SECONDARY)
-                CreateBlock();
+             //   CreateBlock();
+            {
+                InvokedX = e.getSceneX();
+                InvokedY = e.getSceneY();
+
+                context.show(design, e.getScreenX(), e.getScreenY());
+            }
         });
 
         designScroll = new ScrollPane();
@@ -109,6 +148,18 @@ public class Designer extends Application {
 
     public void CreateBlock()
     {
+        ContextMenu context = new ContextMenu();
+        MenuItem sss = new MenuItem("Add block");
+        context.getItems().add(sss);
+        //design.setOnContextMenuRequested();
+
+        //pane, event.getScreenX(), event.getScreenY()
+
+
+
+
+
+
         NewSchemeSet newScheme = new NewSchemeSet();
         newScheme.Display();
 
