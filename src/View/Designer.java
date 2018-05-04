@@ -1,8 +1,5 @@
 package View;
 
-import Classes.AddBlock;
-import Classes.Block;
-import Classes.Scheme;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
