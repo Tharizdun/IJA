@@ -12,11 +12,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import Classes.*;
 
 import java.io.File;
 
 public class Designer extends Application {
-
+    
     Button NewButton;
     Button LoadButton;
     Button SaveButton;
@@ -163,4 +164,5 @@ public class Designer extends Application {
                 SaveScheme();
                 window.close();
     }
+    
 }

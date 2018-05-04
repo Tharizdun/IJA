@@ -8,8 +8,11 @@ package Classes;
 public abstract class Block {
 
     public String Name;
-    public double LocX;
-    public double LocY;
+    public double PosX;
+    public double PosY;
+    public double Width = 60;
+    public double Height = 100;
+    
 
     public Block()
     {
@@ -24,10 +27,10 @@ public abstract class Block {
     public Block(String name, double x, double y)
     {
         Name = name;
-        LocX = x;
-        LocY = y;
+        PosX = x;
+        PosY = y;
     }
 
 
-    public abstract double DoOperation();
+    public abstract void DoOperation();
 }

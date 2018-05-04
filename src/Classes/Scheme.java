@@ -43,7 +43,7 @@ public class Scheme implements SchemeInterface {
         if (BlockDictionary.containsKey(newBlock.Name))
             return false;
 
-        if (newBlock.LocX < 0 || newBlock.LocY < 0)
+        if (newBlock.PosX < 0 || newBlock.PosY < 0)
             return false;
 
         BlockDictionary.put(newBlock.Name, newBlock);
@@ -74,7 +74,7 @@ public class Scheme implements SchemeInterface {
         {
             for (Block unit : BlockDictionary.values())
             {
-                if (unit.LocX > x || unit.LocY > y)
+                if (unit.PosX > x || unit.PosY > y)
                     return false;
             }
         }

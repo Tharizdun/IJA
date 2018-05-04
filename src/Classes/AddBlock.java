@@ -1,6 +1,10 @@
 package Classes;
 
 public class AddBlock extends Block {
+    public PortDouble PortIN1;
+    public PortDouble PortIN2;
+    public PortDouble PortOUT;
+    
 
     public AddBlock()
     {
@@ -16,9 +20,14 @@ public class AddBlock extends Block {
     {
         super(name, x, y);
     }
+    
 
     @Override
-    public double DoOperation() {
-        return 0;
+    public void DoOperation() {
+        if (PortIN1 instanceof PortDouble && 
+            PortIN2 instanceof PortDouble && 
+            PortOUT instanceof PortDouble)
+            
+            PortOUT.value = PortIN1.value + PortIN2.value;
     }
 }
