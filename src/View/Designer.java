@@ -4,9 +4,13 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import Classes.*;
@@ -14,7 +18,8 @@ import Classes.*;
 import java.io.File;
 
 public class Designer extends Application {
-    
+    double orgSceneX, orgSceneY;
+    double orgTranslateX, orgTranslateY;
     Button NewButton;
     Button LoadButton;
     Button SaveButton;
@@ -26,7 +31,7 @@ public class Designer extends Application {
     Scheme currentScheme;
 
     Stage window;
-    GridPane design;
+    AnchorPane design;
 
     boolean NeedSave = false;
 
@@ -51,6 +56,14 @@ public class Designer extends Application {
             CloseRequested();
         });
 
+        /////
+        Line usecka = new Line();
+
+        usecka.setStartX(80.0);
+        usecka.setStartY(50.0);
+        usecka.setEndX(100.0);
+        usecka.setEndY(50.0);
+/////
         NewButton = new Button("New");
         NewButton.setOnAction(e -> CreateNewScheme());
 
@@ -72,9 +85,14 @@ public class Designer extends Application {
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(TopMenu);
 
-        design = new GridPane();
+        design = new AnchorPane();
         design.setPrefSize(0, 0);
         design.setStyle("-fx-background-color: DeepSkyBlue");
+        design.setOnMouseClicked(e ->
+        {
+            if (e.getButton() == MouseButton.SECONDARY)
+                CreateBlock();
+        });
 
         designScroll = new ScrollPane();
         designScroll.setContent(design);
@@ -89,13 +107,27 @@ public class Designer extends Application {
 
     }
 
+    public void CreateBlock()
+    {
+        NewSchemeSet newScheme = new NewSchemeSet();
+        newScheme.Display();
+
+        AddBlock fuckBlock = new AddBlock("Fuck me", newScheme.HeightValue, newScheme.WidthValue);
+
+        design.getChildren().add(fuckBlock);
+        currentScheme.AddBlock(fuckBlock);
+
+        NeedSave = true;
+    }
+
     public void CreateNewScheme()
     {
         NewSchemeSet newScheme = new NewSchemeSet();
 
         if (newScheme.Display()) {
             currentScheme = new Scheme(newScheme.HeightValue, newScheme.WidthValue);
-            design.setPrefSize(currentScheme.GetSchemeTableSize().X, currentScheme.GetSchemeTableSize().Y);
+            SetSchemeSize(currentScheme.GetSchemeTableSize().X, currentScheme.GetSchemeTableSize().Y);
+
             NeedSave = true;
         }
     }
@@ -112,9 +144,27 @@ public class Designer extends Application {
         if (file != null)
         {
             currentScheme.LoadScheme(file.getAbsolutePath());
-            design.setPrefSize(currentScheme.GetSchemeTableSize().X, currentScheme.GetSchemeTableSize().Y);
+            SetSchemeSize(currentScheme.GetSchemeTableSize().X, currentScheme.GetSchemeTableSize().Y);
+
+            for (Block b : currentScheme.BlockDictionary.values())
+            {
+                Rectangle fuckBlockRect = new Rectangle(40, 50);
+
+                fuckBlockRect.setX(b.PosX);
+                fuckBlockRect.setY(b.PosY);
+
+                design.getChildren().add(fuckBlockRect);
+            }
+
             NeedSave = false;
         }
+    }
+
+    public void SetSchemeSize(double height, double width)
+    {
+        design.setPrefSize(height, width);
+        design.setMaxSize(height, width);
+        design.setMinSize(height, width);
     }
 
     public void SaveScheme()

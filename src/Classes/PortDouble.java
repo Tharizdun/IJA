@@ -9,14 +9,21 @@ package Classes;
  *
  * @author Modifikator
  */
-public class PortDouble {
-    public String name = "double";
+public class PortDouble extends Port {
     public double value;
 
     public PortDouble(){
+        Name = "double";
+    }
+
+    public PortDouble(PortType portType)
+    {
+        this();
+        PortType = portType;
     }
     
-    public PortDouble(double x, double y){
+    public PortDouble(PortType portType, double x, double y){
+        this(portType);
         this.value = x;
     }
 }

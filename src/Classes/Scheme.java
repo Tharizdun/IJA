@@ -11,13 +11,14 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import javafx.scene.shape.Line;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
 public class Scheme implements SchemeInterface {
 
-    private Hashtable<String, Block> BlockDictionary;
+    public Hashtable<String, Block> BlockDictionary;
     private ObjectSize TableSize;
 
     public Scheme()

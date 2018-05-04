@@ -9,15 +9,22 @@ package Classes;
  *
  * @author Modifikator
  */
-public class PortPoint {
-    public String name = "point";
+public class PortPoint extends Port{
     public double x;
     public double y;    
     
     public PortPoint(){
+        Name = "point";
     }
-    
-    public PortPoint(double x, double y){
+
+    public PortPoint(PortType portType)
+    {
+        this();
+        PortType = portType;
+    }
+
+    public PortPoint(PortType portType, double x, double y){
+        this(portType);
         this.x = x;
         this.y = y;
     }
