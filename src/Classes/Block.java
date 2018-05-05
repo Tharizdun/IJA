@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import javafx.scene.layout.AnchorPane;
+
 public abstract class Block{
 
     double orgSceneX, orgSceneY;
@@ -76,6 +78,8 @@ public abstract class Block{
         port3.setY(this.PosY+40);
 
         Text t = new Text(this.PosX, this.PosY+this.Height+10, name);
+        
+        
 
         this.group = new Group();
         this.group.getChildren().addAll(blockMain,blockMainInside,port1,port2,port3,t);
@@ -93,17 +97,17 @@ public abstract class Block{
                     this.PosY = ((Rectangle)group.getChildren().get(0)).getY()+ newTranslateY;
 
                     // movement of connected lines
-                    if (this.port1 instanceof Line){
-                        this.port1.setEndX(this.PosX+5);
-                        this.port1.setEndY(this.PosY+25);
+                    if (((Port)this.Ports.get(0)).connection instanceof Line){
+                        ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
+                        ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
                     }
-                    if (this.port2 instanceof Line){
-                        this.port2.setEndX(this.PosX+5);
-                        this.port2.setEndY(this.PosY+65);
+                    if (((Port)this.Ports.get(1)).connection instanceof Line){
+                        ((Port)this.Ports.get(1)).connection.setEndX(this.PosX+5);
+                        ((Port)this.Ports.get(1)).connection.setEndY(this.PosY+65);
                     }
-                    if (this.portOUT instanceof Line){
-                        this.portOUT.setStartX(this.PosX+this.Width-5);
-                        this.portOUT.setStartY(this.PosY+45);
+                    if (((Port)this.Ports.get(2)).connection instanceof Line){
+                        ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
+                        ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
                     }
                 }
         );
@@ -133,77 +137,43 @@ public abstract class Block{
             this.PosY = ((Rectangle)group.getChildren().get(0)).getY();
 
             // movement of connected lines
-            if (this.port1 instanceof Line){
-                this.port1.setEndX(this.PosX+5);
-                this.port1.setEndY(this.PosY+25);
+            if (((Port)this.Ports.get(0)).connection instanceof Line){
+                ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
+                ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
             }
-            if (this.port2 instanceof Line){
-                this.port2.setEndX(this.PosX+5);
-                this.port2.setEndY(this.PosY+65);
+            if (((Port)this.Ports.get(1)).connection instanceof Line){
+                ((Port)this.Ports.get(1)).connection.setEndX(this.PosX+5);
+                ((Port)this.Ports.get(1)).connection.setEndY(this.PosY+65);
             }
-            if (this.portOUT instanceof Line){
-                this.portOUT.setStartX(this.PosX+this.Width-5);
-                this.portOUT.setStartY(this.PosY+45);
+            if (((Port)this.Ports.get(2)).connection instanceof Line){
+                ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
+                ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
             }
         });
 
-//        this.setOnMouseDragged(e ->{
-  //                  double offsetX = e.getSceneX() - orgSceneX;
-    //                double offsetY = e.getSceneY() - orgSceneY;
-      //              double newTranslateX = orgTranslateX + offsetX;
-        //            double newTranslateY = orgTranslateY + offsetY;
-
-          //          ((Rectangle)(e.getSource())).setTranslateX(newTranslateX);
-            //        ((Rectangle)(e.getSource())).setTranslateY(newTranslateY);
-         //           System.out.println("souradnice X,Y pro primku start: " + usecka.getStartX()+ " " + usecka.getStartY() );
-           //         System.out.println("souradnice X,Y pro block : " + Block1.getX()+ " " + Block1.getY() );
-             //       usecka.setStartX(this.getX()+40);
-               //     usecka.setStartY(this.getY()+10);
-                 //   System.out.println("souradnice X,Y pro primku start: " + usecka.getStartX()+ " " + usecka.getStartY() );
-
-   //             }
-//        );
-
-  //      this.setOnMousePressed(e ->{
-    //                orgSceneX = e.getSceneX();
-      //              orgSceneY = e.getSceneY();
-        //            orgTranslateX = ((Rectangle)(e.getSource())).getTranslateX();
-          //          orgTranslateY = ((Rectangle)(e.getSource())).getTranslateY();
-
-            //    }
-//        );
-
-  //      this.setOnMouseReleased(e -> {
-    //        this.setX(this.getX() + this.getTranslateX());
-      //      this.setY(this.getY() + this.getTranslateY());
-        //    this.setTranslateX(0);
-          //  this.setTranslateY(0);
-          //  usecka.setStartX(Block1.getX()+40);
-            //usecka.setStartY(Block1.getY()+10);
-        //});
-
     }
 
-    public Line connectBlocks(Block foreignBlock,String foreignPortType,String PortType){
-        if (foreignPortType != PortType){
-            if (foreignPortType == "out"){
-                foreignBlock.portOUT = new Line(foreignBlock.PosX+foreignBlock.Width-5,
-                        foreignBlock.PosY+45,
-                        this.PosX+5,
-                        this.PosY+25);
-                this.port1 = foreignBlock.portOUT;
-                return this.port1;
+    public void updateConnections(AnchorPane design){
+        this.Connections.forEach((k,v) ->{
+        if (v.Port.PortType != k.PortType){
+            if (v.Port.PortType == PortType.Out){
+                v.Port.connection = new Line(v.Block.PosX+v.Block.Width-5,
+                                            v.Block.PosY+45,
+                                            this.PosX+5,
+                                            this.PosY+25);
+                k.connection = v.Port.connection;
+                design.getChildren().add(k.connection);
             }
             else {
-                foreignBlock.port1 = new Line(this.PosX+this.Width-5,
-                        this.PosY+45,
-                        foreignBlock.PosX+5,
-                        foreignBlock.PosY+25);
-                this.portOUT = foreignBlock.port1;
-                return this.portOUT;
+                v.Port.connection = new Line(this.PosX+this.Width-5,
+                                            this.PosY+45,
+                                            v.Block.PosX+5,
+                                            v.Block.PosY+25);
+                k.connection = v.Port.connection;
+                design.getChildren().add(k.connection);     
             }
         }
-        return null;
+        });
     }
 
     public abstract Port GetPort(Port blockPort);

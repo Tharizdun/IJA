@@ -123,9 +123,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = addBlock;
                     bp.Port = addBlock.PortOUT;
-                    newAddBlock.OutC.Block.Connections.put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port), bp);
+                    newAddBlock.OutC.Block.Connections.put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port), bp);   
                 }
 
+                addBlock.updateConnections(design);
                 design.getChildren().add(addBlock.group);
                 currentScheme.AddBlock(addBlock);
 
@@ -173,6 +174,7 @@ public class Designer extends Application {
                     newSubBlock.OutC.Block.Connections.put(newSubBlock.OutC.Block.GetPort(newSubBlock.OutC.Port), bp);
                 }
 
+                subBlock.updateConnections(design);
                 design.getChildren().add(subBlock.group);
                 currentScheme.AddBlock(subBlock);
 
@@ -220,6 +222,7 @@ public class Designer extends Application {
                     newMulBlock.OutC.Block.Connections.put(newMulBlock.OutC.Block.GetPort(newMulBlock.OutC.Port), bp);
                 }
 
+                mulBlock.updateConnections(design);
                 design.getChildren().add(mulBlock.group);
                 currentScheme.AddBlock(mulBlock);
 
@@ -267,6 +270,7 @@ public class Designer extends Application {
                     newDivBlock.OutC.Block.Connections.put(newDivBlock.OutC.Block.GetPort(newDivBlock.OutC.Port), bp);
                 }
 
+                divBlock.updateConnections(design);
                 design.getChildren().add(divBlock.group);
                 currentScheme.AddBlock(divBlock);
 
@@ -314,6 +318,7 @@ public class Designer extends Application {
                     newPointBlock.OutC.Block.Connections.put(newPointBlock.OutC.Block.GetPort(newPointBlock.OutC.Port), bp);
                 }
 
+                pointBlock.updateConnections(design);
                 design.getChildren().add(pointBlock.group);
                 currentScheme.AddBlock(pointBlock);
 
@@ -361,6 +366,7 @@ public class Designer extends Application {
                     newDistanceBlock.OutC.Block.Connections.put(newDistanceBlock.OutC.Block.GetPort(newDistanceBlock.OutC.Port), bp);
                 }
 
+                distanceBlock.updateConnections(design);
                 design.getChildren().add(distanceBlock.group);
                 currentScheme.AddBlock(distanceBlock);
 
@@ -408,6 +414,7 @@ public class Designer extends Application {
                     newVectorBlock.OutC.Block.Connections.put(newVectorBlock.OutC.Block.GetPort(newVectorBlock.OutC.Port), bp);
                 }
 
+                vectorBlock.updateConnections(design);
                 design.getChildren().add(vectorBlock.group);
                 currentScheme.AddBlock(vectorBlock);
 
