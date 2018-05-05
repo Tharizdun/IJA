@@ -430,9 +430,6 @@ public class Designer extends Application {
             newStartBlock.CurrentScheme = currentScheme;
             newStartBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Start) + 1;
 
-            if (newStartBlock.CurrentBlock != 1)
-                return;
-
             if (newStartBlock.Display()) {
                 StartBlock startBlock = new StartBlock("Start", InvokedX, InvokedY);
 
