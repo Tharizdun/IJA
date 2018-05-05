@@ -25,11 +25,8 @@ public abstract class Block{
     public double PosX;
     public double PosY;
     public double Width = 60;
-    public double Height = 100;
+    public double Height = 90;
     public BlockType BlockType;
-    public Line port1;
-    public Line port2;
-    public Line portOUT;
     public Group group;
 
     public Hashtable<Port, BlockPort> Connections = new Hashtable<>();
@@ -152,8 +149,8 @@ public abstract class Block{
         });
 
     }
-
-    public void updateConnections(AnchorPane design){
+    /*
+    public void updateConnections2(AnchorPane design){
         this.Connections.forEach((k,v) ->{
         if (v.Port.PortType != k.PortType){
             if (v.Port.PortType == PortType.Out){
@@ -174,6 +171,42 @@ public abstract class Block{
             }
         }
         });
+        
+    }
+    */
+    
+    public void updateConnections(AnchorPane design){
+        this.Connections.forEach((k,v) ->{
+        if (v.Port.PortType != k.PortType){
+            if (v.Port.PortType == PortType.Out){
+                v.Port.connection = new Line();
+                k.connection = v.Port.connection;
+                design.getChildren().add(k.connection);
+            }
+            else {
+                v.Port.connection = new Line();
+                k.connection = v.Port.connection;
+                design.getChildren().add(k.connection);     
+            }
+        }
+        this.refresh();
+        v.Block.refresh();
+        });   
+    }
+    
+    public void refresh(){
+        if (((Port)this.Ports.get(0)).connection instanceof Line){
+                ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
+                ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
+            }
+            if (((Port)this.Ports.get(1)).connection instanceof Line){
+                ((Port)this.Ports.get(1)).connection.setEndX(this.PosX+5);
+                ((Port)this.Ports.get(1)).connection.setEndY(this.PosY+65);
+            }
+            if (((Port)this.Ports.get(2)).connection instanceof Line){
+                ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
+                ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
+            }
     }
 
     public abstract Port GetPort(Port blockPort);
