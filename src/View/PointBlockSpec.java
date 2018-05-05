@@ -72,7 +72,17 @@ public class PointBlockSpec  extends NewBlockSpec{
         Button Confirm = new Button("Confirm");
         Confirm.setOnAction(e -> {
 
-            if (Input1.getValue() != Input2.getValue() || Input1.getValue() == null) {
+            boolean go = Input1.getValue() == null;
+
+            if (!go)
+            {
+                go = Input2.getValue() == null;
+
+                if (!go)
+                    go = Input1.getValue().hashCode() != Input2.getValue().hashCode();
+            }
+
+            if (go) {
                 if (Input1.getValue() != null)
                     In1C = freePortsOut.get(GetSelectedIndex(Input1.getValue(), freePortsOut));
 
