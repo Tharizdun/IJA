@@ -6,15 +6,17 @@
 package Classes;
 import Classes.Interface.SchemeInterface;
 
-import java.awt.*;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javafx.scene.shape.Line;
+
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 
 public class Scheme implements SchemeInterface {
 
@@ -134,5 +136,28 @@ public class Scheme implements SchemeInterface {
         }
 
         return i;
+    }
+
+    public List<BlockPort> GetFreePorts(PortType portType, String portname)
+    {
+        List<BlockPort> res = new ArrayList<>();
+
+        for(Block b : BlockDictionary.values())
+        {
+            for (Object p : b.Ports)
+            {
+                if (p instanceof Port)
+                    if (!b.Connections.containsKey((Port)p))
+                        if (((Port)p).Name == portname && ((Port)p).PortType == portType)
+                        {
+                            BlockPort bp = new BlockPort();
+                            bp.Block = b;
+                            bp.Port = (Port)p;
+                            res.add(bp);
+                        }
+            }
+        }
+
+        return res;
     }
 }

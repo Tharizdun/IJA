@@ -91,10 +91,40 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             AddBlockSpec newAddBlock = new AddBlockSpec();
+            newAddBlock.CurrentScheme = currentScheme;
             newAddBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Add) + 1;
 
             if (newAddBlock.Display()) {
                 AddBlock addBlock = new AddBlock(newAddBlock.BlockName, InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newAddBlock.In1C != null) {
+                    addBlock.Connections.put(addBlock.PortIN1, newAddBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = addBlock;
+                    bp.Port = addBlock.PortIN1;
+                    newAddBlock.In1C.Block.Connections.put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port), bp);
+                }
+
+                if (newAddBlock.In2C != null){
+                    addBlock.Connections.put(addBlock.PortIN2, newAddBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = addBlock;
+                    bp.Port = addBlock.PortIN2;
+                    newAddBlock.In1C.Block.Connections.put(newAddBlock.In1C.Block.GetPort(newAddBlock.In2C.Port), bp);
+                }
+
+                if (newAddBlock.OutC != null){
+                    addBlock.Connections.put(addBlock.PortOUT, newAddBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = addBlock;
+                    bp.Port = addBlock.PortOUT;
+                    newAddBlock.In1C.Block.Connections.put(newAddBlock.In1C.Block.GetPort(newAddBlock.OutC.Port), bp);
+                }
 
                 design.getChildren().add(addBlock);
                 currentScheme.AddBlock(addBlock);
@@ -108,10 +138,40 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             SubBlockSpec newSubBlock = new SubBlockSpec();
+            newSubBlock.CurrentScheme = currentScheme;
             newSubBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Sub) + 1;
 
             if (newSubBlock.Display()) {
                 SubBlock subBlock = new SubBlock(newSubBlock.BlockName, InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newSubBlock.In1C != null) {
+                    subBlock.Connections.put(subBlock.PortIN1, newSubBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = subBlock;
+                    bp.Port = subBlock.PortIN1;
+                    newSubBlock.In1C.Block.Connections.put(newSubBlock.In1C.Block.GetPort(newSubBlock.In1C.Port), bp);
+                }
+
+                if (newSubBlock.In2C != null){
+                    subBlock.Connections.put(subBlock.PortIN2, newSubBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = subBlock;
+                    bp.Port = subBlock.PortIN2;
+                    newSubBlock.In1C.Block.Connections.put(newSubBlock.In1C.Block.GetPort(newSubBlock.In2C.Port), bp);
+                }
+
+                if (newSubBlock.OutC != null){
+                    subBlock.Connections.put(subBlock.PortOUT, newSubBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = subBlock;
+                    bp.Port = subBlock.PortOUT;
+                    newSubBlock.In1C.Block.Connections.put(newSubBlock.In1C.Block.GetPort(newSubBlock.OutC.Port), bp);
+                }
 
                 design.getChildren().add(subBlock);
                 currentScheme.AddBlock(subBlock);
@@ -125,10 +185,40 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             MulBlockSpec newMulBlock = new MulBlockSpec();
+            newMulBlock.CurrentScheme = currentScheme;
             newMulBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Add) + 1;
 
             if (newMulBlock.Display()) {
                 MulBlock mulBlock = new MulBlock(newMulBlock.BlockName, InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newMulBlock.In1C != null) {
+                    mulBlock.Connections.put(mulBlock.PortIN1, newMulBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = mulBlock;
+                    bp.Port = mulBlock.PortIN1;
+                    newMulBlock.In1C.Block.Connections.put(newMulBlock.In1C.Block.GetPort(newMulBlock.In1C.Port), bp);
+                }
+
+                if (newMulBlock.In2C != null){
+                    mulBlock.Connections.put(mulBlock.PortIN2, newMulBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = mulBlock;
+                    bp.Port = mulBlock.PortIN2;
+                    newMulBlock.In1C.Block.Connections.put(newMulBlock.In1C.Block.GetPort(newMulBlock.In2C.Port), bp);
+                }
+
+                if (newMulBlock.OutC != null){
+                    mulBlock.Connections.put(mulBlock.PortOUT, newMulBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = mulBlock;
+                    bp.Port = mulBlock.PortOUT;
+                    newMulBlock.In1C.Block.Connections.put(newMulBlock.In1C.Block.GetPort(newMulBlock.OutC.Port), bp);
+                }
 
                 design.getChildren().add(mulBlock);
                 currentScheme.AddBlock(mulBlock);
@@ -142,10 +232,40 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             DivBlockSpec newDivBlock = new DivBlockSpec();
+            newDivBlock.CurrentScheme = currentScheme;
             newDivBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Div) + 1;
 
             if (newDivBlock.Display()) {
                 DivBlock divBlock = new DivBlock(newDivBlock.BlockName, InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newDivBlock.In1C != null) {
+                    divBlock.Connections.put(divBlock.PortIN1, newDivBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = divBlock;
+                    bp.Port = divBlock.PortIN1;
+                    newDivBlock.In1C.Block.Connections.put(newDivBlock.In1C.Block.GetPort(newDivBlock.In1C.Port), bp);
+                }
+
+                if (newDivBlock.In2C != null){
+                    divBlock.Connections.put(divBlock.PortIN2, newDivBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = divBlock;
+                    bp.Port = divBlock.PortIN2;
+                    newDivBlock.In1C.Block.Connections.put(newDivBlock.In1C.Block.GetPort(newDivBlock.In2C.Port), bp);
+                }
+
+                if (newDivBlock.OutC != null){
+                    divBlock.Connections.put(divBlock.PortOUT, newDivBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = divBlock;
+                    bp.Port = divBlock.PortOUT;
+                    newDivBlock.In1C.Block.Connections.put(newDivBlock.In1C.Block.GetPort(newDivBlock.OutC.Port), bp);
+                }
 
                 design.getChildren().add(divBlock);
                 currentScheme.AddBlock(divBlock);
@@ -159,10 +279,40 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             PointBlockSpec newPointBlock = new PointBlockSpec();
+            newPointBlock.CurrentScheme = currentScheme;
             newPointBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Point) + 1;
 
             if (newPointBlock.Display()) {
                 PointBlock pointBlock = new PointBlock(newPointBlock.BlockName, InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newPointBlock.In1C != null) {
+                    pointBlock.Connections.put(pointBlock.PortIN1, newPointBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = pointBlock;
+                    bp.Port = pointBlock.PortIN1;
+                    newPointBlock.In1C.Block.Connections.put(newPointBlock.In1C.Block.GetPort(newPointBlock.In1C.Port), bp);
+                }
+
+                if (newPointBlock.In2C != null){
+                    pointBlock.Connections.put(pointBlock.PortIN2, newPointBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = pointBlock;
+                    bp.Port = pointBlock.PortIN2;
+                    newPointBlock.In1C.Block.Connections.put(newPointBlock.In1C.Block.GetPort(newPointBlock.In2C.Port), bp);
+                }
+
+                if (newPointBlock.OutC != null){
+                    pointBlock.Connections.put(pointBlock.PortOUT, newPointBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = pointBlock;
+                    bp.Port = pointBlock.PortOUT;
+                    newPointBlock.In1C.Block.Connections.put(newPointBlock.In1C.Block.GetPort(newPointBlock.OutC.Port), bp);
+                }
 
                 design.getChildren().add(pointBlock);
                 currentScheme.AddBlock(pointBlock);
@@ -176,13 +326,43 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             DistanceBlockSpec newDistanceBlock = new DistanceBlockSpec();
+            newDistanceBlock.CurrentScheme = currentScheme;
             newDistanceBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Distance) + 1;
 
             if (newDistanceBlock.Display()) {
-                DistanceBlock distanecBlock = new DistanceBlock(newDistanceBlock.BlockName, InvokedX, InvokedY);
+                DistanceBlock distanceBlock = new DistanceBlock(newDistanceBlock.BlockName, InvokedX, InvokedY);
 
-                design.getChildren().add(distanecBlock);
-                currentScheme.AddBlock(distanecBlock);
+                BlockPort bp;
+
+                if (newDistanceBlock.In1C != null) {
+                    distanceBlock.Connections.put(distanceBlock.PortIN1, newDistanceBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = distanceBlock;
+                    bp.Port = distanceBlock.PortIN1;
+                    newDistanceBlock.In1C.Block.Connections.put(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.In1C.Port), bp);
+                }
+
+                if (newDistanceBlock.In2C != null){
+                    distanceBlock.Connections.put(distanceBlock.PortIN2, newDistanceBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = distanceBlock;
+                    bp.Port = distanceBlock.PortIN2;
+                    newDistanceBlock.In1C.Block.Connections.put(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.In2C.Port), bp);
+                }
+
+                if (newDistanceBlock.OutC != null){
+                    distanceBlock.Connections.put(distanceBlock.PortOUT, newDistanceBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = distanceBlock;
+                    bp.Port = distanceBlock.PortOUT;
+                    newDistanceBlock.In1C.Block.Connections.put(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.OutC.Port), bp);
+                }
+
+                design.getChildren().add(distanceBlock);
+                currentScheme.AddBlock(distanceBlock);
 
                 NeedSave = true;
             }
@@ -193,10 +373,40 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             VectorBlockSpec newVectorBlock = new VectorBlockSpec();
+            newVectorBlock.CurrentScheme = currentScheme;
             newVectorBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Vector) + 1;
 
             if (newVectorBlock.Display()) {
                 VectorBlock vectorBlock = new VectorBlock(newVectorBlock.BlockName, InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newVectorBlock.In1C != null) {
+                    vectorBlock.Connections.put(vectorBlock.PortIN1, newVectorBlock.In1C);
+
+                    bp = new BlockPort();
+                    bp.Block = vectorBlock;
+                    bp.Port = vectorBlock.PortIN1;
+                    newVectorBlock.In1C.Block.Connections.put(newVectorBlock.In1C.Block.GetPort(newVectorBlock.In1C.Port), bp);
+                }
+
+                if (newVectorBlock.In2C != null){
+                    vectorBlock.Connections.put(vectorBlock.PortIN2, newVectorBlock.In2C);
+
+                    bp = new BlockPort();
+                    bp.Block = vectorBlock;
+                    bp.Port = vectorBlock.PortIN2;
+                    newVectorBlock.In1C.Block.Connections.put(newVectorBlock.In1C.Block.GetPort(newVectorBlock.In2C.Port), bp);
+                }
+
+                if (newVectorBlock.OutC != null){
+                    vectorBlock.Connections.put(vectorBlock.PortOUT, newVectorBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = vectorBlock;
+                    bp.Port = vectorBlock.PortOUT;
+                    newVectorBlock.In1C.Block.Connections.put(newVectorBlock.In1C.Block.GetPort(newVectorBlock.OutC.Port), bp);
+                }
 
                 design.getChildren().add(vectorBlock);
                 currentScheme.AddBlock(vectorBlock);

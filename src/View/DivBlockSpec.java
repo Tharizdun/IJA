@@ -1,6 +1,8 @@
 package View;
 
+import Classes.BlockPort;
 import Classes.Port;
+import Classes.PortType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,17 +14,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class DivBlockSpec{
+import java.util.List;
 
-    boolean result = false;
-
-    public String BlockName;
-    public int CurrentBlock = 0;
-
-    Stage window;
+public class DivBlockSpec extends NewBlockSpec{
 
     public boolean Display()
     {
+        List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "double");
+        List<BlockPort> freePortsIn = CurrentScheme.GetFreePorts(PortType.In, "double");
+
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Div block specification");
@@ -31,21 +31,39 @@ public class DivBlockSpec{
         layout.setPadding(new Insets(25, 25, 25, 25));
 
         Label Input1Lab = new Label("Input 1:");
-        ComboBox<Port> Input1 = new ComboBox<>();
+        ComboBox<String> Input1 = new ComboBox<>();
+
+        for (BlockPort bp : freePortsOut)
+        {
+            Input1.getItems().add(bp.toString());
+        }
+
         HBox hb = new HBox();
         hb.getChildren().addAll(Input1Lab, Input1);
         hb.setSpacing(10);
         layout.getChildren().add(hb);
 
         Label Input2Lab = new Label("Input 2:");
-        ComboBox<Port> Input2 = new ComboBox<>();
+        ComboBox<String> Input2 = new ComboBox<>();
+
+        for (BlockPort bp : freePortsOut)
+        {
+            Input2.getItems().add(bp.toString());
+        }
+
         hb = new HBox();
         hb.getChildren().addAll(Input2Lab, Input2);
         hb.setSpacing(10);
         layout.getChildren().add(hb);
 
         Label OutputLab = new Label("Output:");
-        ComboBox<Port> Output = new ComboBox<>();
+        ComboBox<String> Output = new ComboBox<>();
+
+        for (BlockPort bp : freePortsIn)
+        {
+            Output.getItems().add(bp.toString());
+        }
+
         hb = new HBox();
         hb.getChildren().addAll(OutputLab, Output);
         hb.setSpacing(10);
@@ -53,9 +71,21 @@ public class DivBlockSpec{
 
         Button Confirm = new Button("Confirm");
         Confirm.setOnAction(e -> {
-            result = true;
-            BlockName = "Div" + Integer.toString(CurrentBlock);
-            window.close();
+
+            if (Input1.getValue() != Input2.getValue() || Input1.getValue() == null) {
+                if (Input1.getValue() != null)
+                    In1C = freePortsOut.get(GetSelectedIndex(Input1.getValue(), freePortsOut));
+
+                if (Input2.getValue() != null)
+                    In2C = freePortsOut.get(GetSelectedIndex(Input2.getValue(), freePortsOut));
+
+                if (Output.getValue() != null)
+                    OutC = freePortsIn.get(GetSelectedIndex(Output.getValue(), freePortsIn));
+
+                result = true;
+                BlockName = "Div" + Integer.toString(CurrentBlock);
+                window.close();
+            }
         });
 
         Button Cancel = new Button("Cancel");

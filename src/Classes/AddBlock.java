@@ -28,7 +28,17 @@ public class AddBlock extends Block {
         Ports.add(PortIN2);
         Ports.add(PortOUT);
     }
-    
+
+    @Override
+    public Port GetPort(Port blockPort) {
+        if (blockPort == PortOUT)
+            return PortOUT;
+        else
+            if (blockPort == PortIN1)
+                return PortIN1;
+        else
+            return PortIN2;
+    }
 
     @Override
     public void DoOperation() {

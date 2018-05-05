@@ -23,7 +23,7 @@ public abstract class Block extends Rectangle{
     public double Height = 100;
     public BlockType BlockType;
 
-    public Hashtable<Port, Block> Connections = new Hashtable<>();
+    public Hashtable<Port, BlockPort> Connections = new Hashtable<>();
     public List Ports = new ArrayList<Port>();
 
     public Block()
@@ -83,6 +83,8 @@ public abstract class Block extends Rectangle{
         });
 
     }
+
+    public abstract Port GetPort(Port blockPort);
 
     public void ResizeScheme(double Height, double Width)
     {
