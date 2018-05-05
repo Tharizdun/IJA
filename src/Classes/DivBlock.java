@@ -28,9 +28,10 @@ public class DivBlock extends Block {
     {
         super(name, x, y);
         BlockType = Classes.BlockType.Div;
-        Connections.put(PortIN1, null);
-        Connections.put(PortIN2, null);
-        Connections.put(PortOUT, null);
+
+        Ports.add(PortIN1);
+        Ports.add(PortIN2);
+        Ports.add(PortOUT);
     }
     
 

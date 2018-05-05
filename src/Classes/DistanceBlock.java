@@ -28,6 +28,10 @@ public class DistanceBlock extends Block {
     {
         super(name, x, y);
         BlockType = Classes.BlockType.Distance;
+
+        Ports.add(PortIN1);
+        Ports.add(PortIN2);
+        Ports.add(PortOUT);
     }
     
 

@@ -7,7 +7,10 @@ package Classes;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public abstract class Block extends Rectangle{
 
@@ -21,6 +24,7 @@ public abstract class Block extends Rectangle{
     public BlockType BlockType;
 
     public Hashtable<Port, Block> Connections = new Hashtable<>();
+    public List Ports = new ArrayList<Port>();
 
     public Block()
     {
