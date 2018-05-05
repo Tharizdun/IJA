@@ -91,12 +91,13 @@ public class Designer extends Application {
         mItem.setOnAction(e ->
         {
             AddBlockSpec newAddBlock = new AddBlockSpec();
+            newAddBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Add) + 1;
 
             if (newAddBlock.Display()) {
-                AddBlock fuckBlock = new AddBlock(newAddBlock.BlockName, InvokedX, InvokedY);
+                AddBlock addBlock = new AddBlock(newAddBlock.BlockName, InvokedX, InvokedY);
 
-                design.getChildren().add(fuckBlock);
-                currentScheme.AddBlock(fuckBlock);
+                design.getChildren().add(addBlock);
+                currentScheme.AddBlock(addBlock);
 
                 NeedSave = true;
             }
@@ -104,18 +105,105 @@ public class Designer extends Application {
         context.getItems().add(mItem);
 
         mItem = new MenuItem("New Sub block");
+        mItem.setOnAction(e ->
+        {
+            SubBlockSpec newSubBlock = new SubBlockSpec();
+            newSubBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Sub) + 1;
+
+            if (newSubBlock.Display()) {
+                SubBlock subBlock = new SubBlock(newSubBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(subBlock);
+                currentScheme.AddBlock(subBlock);
+
+                NeedSave = true;
+            }
+        });
         context.getItems().add(mItem);
 
         mItem = new MenuItem("New Mul block");
+        mItem.setOnAction(e ->
+        {
+            MulBlockSpec newMulBlock = new MulBlockSpec();
+            newMulBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Add) + 1;
+
+            if (newMulBlock.Display()) {
+                MulBlock mulBlock = new MulBlock(newMulBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(mulBlock);
+                currentScheme.AddBlock(mulBlock);
+
+                NeedSave = true;
+            }
+        });
         context.getItems().add(mItem);
 
         mItem = new MenuItem("New Div block");
+        mItem.setOnAction(e ->
+        {
+            DivBlockSpec newDivBlock = new DivBlockSpec();
+            newDivBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Div) + 1;
+
+            if (newDivBlock.Display()) {
+                DivBlock divBlock = new DivBlock(newDivBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(divBlock);
+                currentScheme.AddBlock(divBlock);
+
+                NeedSave = true;
+            }
+        });
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Point block");
+        mItem.setOnAction(e ->
+        {
+            PointBlockSpec newPointBlock = new PointBlockSpec();
+            newPointBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Point) + 1;
+
+            if (newPointBlock.Display()) {
+                PointBlock pointBlock = new PointBlock(newPointBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(pointBlock);
+                currentScheme.AddBlock(pointBlock);
+
+                NeedSave = true;
+            }
+        });
         context.getItems().add(mItem);
 
         mItem = new MenuItem("New Distance block");
+        mItem.setOnAction(e ->
+        {
+            DistanceBlockSpec newDistanceBlock = new DistanceBlockSpec();
+            newDistanceBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Distance) + 1;
+
+            if (newDistanceBlock.Display()) {
+                DistanceBlock distanecBlock = new DistanceBlock(newDistanceBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(distanecBlock);
+                currentScheme.AddBlock(distanecBlock);
+
+                NeedSave = true;
+            }
+        });
         context.getItems().add(mItem);
 
         mItem = new MenuItem("New Vector block");
+        mItem.setOnAction(e ->
+        {
+            VectorBlockSpec newVectorBlock = new VectorBlockSpec();
+            newVectorBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Vector) + 1;
+
+            if (newVectorBlock.Display()) {
+                VectorBlock vectorBlock = new VectorBlock(newVectorBlock.BlockName, InvokedX, InvokedY);
+
+                design.getChildren().add(vectorBlock);
+                currentScheme.AddBlock(vectorBlock);
+
+                NeedSave = true;
+            }
+        });
         context.getItems().add(mItem);
 
         design = new AnchorPane();
@@ -199,12 +287,9 @@ public class Designer extends Application {
 
             for (Block b : currentScheme.BlockDictionary.values())
             {
-                Rectangle fuckBlockRect = new Rectangle(40, 50);
+                AddBlock fuckBlock = new AddBlock(b.Name, b.PosX, b.PosY);
 
-                fuckBlockRect.setX(b.PosX);
-                fuckBlockRect.setY(b.PosY);
-
-                design.getChildren().add(fuckBlockRect);
+                design.getChildren().add(fuckBlock);
             }
 
             NeedSave = false;

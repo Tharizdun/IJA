@@ -122,4 +122,17 @@ public class Scheme implements SchemeInterface {
         catch (Exception e)
         {}
     }
+
+    public int GetBlockTypeCount(BlockType blockType)
+    {
+        int i = 0;
+
+        for (Block b : BlockDictionary.values())
+        {
+            if (b.BlockType == blockType)
+                i++;
+        }
+
+        return i;
+    }
 }

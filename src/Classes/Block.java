@@ -5,6 +5,7 @@
 
 package Classes;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.util.Hashtable;
 
@@ -17,12 +18,13 @@ public abstract class Block extends Rectangle{
     public double PosY;
     public double Width = 60;
     public double Height = 100;
+    public BlockType BlockType;
 
-    public Hashtable<Integer, Hashtable<Port, Block>> Connections = new Hashtable<>();
+    public Hashtable<Port, Block> Connections = new Hashtable<>();
 
     public Block()
     {
-
+        super.setFill(Color.rgb(127, 255, 128));
     }
 
     public Block(String name)

@@ -22,8 +22,8 @@ public class PortDouble extends Port {
         PortType = portType;
     }
     
-    public PortDouble(PortType portType, double x, double y){
+    public PortDouble(PortType portType, double value){
         this(portType);
-        this.value = x;
+        this.value = value;
     }
 }

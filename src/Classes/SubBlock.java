@@ -10,10 +10,9 @@ package Classes;
  * @author Modifikator
  */
 public class SubBlock extends Block {
-    public PortDouble PortIN1;
-    public PortDouble PortIN2;
-    public PortDouble PortOUT;
-    
+    public PortDouble PortIN1 = new PortDouble(PortType.In);
+    public PortDouble PortIN2 = new PortDouble(PortType.In);
+    public PortDouble PortOUT = new PortDouble(PortType.Out);
 
     public SubBlock()
     {
@@ -28,6 +27,10 @@ public class SubBlock extends Block {
     public SubBlock(String name, double x, double y)
     {
         super(name, x, y);
+        BlockType = Classes.BlockType.Sub;
+        Connections.put(PortIN1, null);
+        Connections.put(PortIN2, null);
+        Connections.put(PortOUT, null);
     }
     
 
