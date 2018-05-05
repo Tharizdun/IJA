@@ -114,7 +114,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = addBlock;
                     bp.Port = addBlock.PortIN2;
-                    newAddBlock.In1C.Block.Connections.put(newAddBlock.In1C.Block.GetPort(newAddBlock.In2C.Port), bp);
+                    newAddBlock.In2C.Block.Connections.put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port), bp);
                 }
 
                 if (newAddBlock.OutC != null){
@@ -123,10 +123,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = addBlock;
                     bp.Port = addBlock.PortOUT;
-                    newAddBlock.In1C.Block.Connections.put(newAddBlock.In1C.Block.GetPort(newAddBlock.OutC.Port), bp);
+                    newAddBlock.OutC.Block.Connections.put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(addBlock);
+                design.getChildren().add(addBlock.group);
                 currentScheme.AddBlock(addBlock);
 
                 NeedSave = true;
@@ -161,7 +161,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = subBlock;
                     bp.Port = subBlock.PortIN2;
-                    newSubBlock.In1C.Block.Connections.put(newSubBlock.In1C.Block.GetPort(newSubBlock.In2C.Port), bp);
+                    newSubBlock.In2C.Block.Connections.put(newSubBlock.In2C.Block.GetPort(newSubBlock.In2C.Port), bp);
                 }
 
                 if (newSubBlock.OutC != null){
@@ -170,10 +170,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = subBlock;
                     bp.Port = subBlock.PortOUT;
-                    newSubBlock.In1C.Block.Connections.put(newSubBlock.In1C.Block.GetPort(newSubBlock.OutC.Port), bp);
+                    newSubBlock.OutC.Block.Connections.put(newSubBlock.OutC.Block.GetPort(newSubBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(subBlock);
+                design.getChildren().add(subBlock.group);
                 currentScheme.AddBlock(subBlock);
 
                 NeedSave = true;
@@ -208,7 +208,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = mulBlock;
                     bp.Port = mulBlock.PortIN2;
-                    newMulBlock.In1C.Block.Connections.put(newMulBlock.In1C.Block.GetPort(newMulBlock.In2C.Port), bp);
+                    newMulBlock.In2C.Block.Connections.put(newMulBlock.In2C.Block.GetPort(newMulBlock.In2C.Port), bp);
                 }
 
                 if (newMulBlock.OutC != null){
@@ -217,10 +217,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = mulBlock;
                     bp.Port = mulBlock.PortOUT;
-                    newMulBlock.In1C.Block.Connections.put(newMulBlock.In1C.Block.GetPort(newMulBlock.OutC.Port), bp);
+                    newMulBlock.OutC.Block.Connections.put(newMulBlock.OutC.Block.GetPort(newMulBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(mulBlock);
+                design.getChildren().add(mulBlock.group);
                 currentScheme.AddBlock(mulBlock);
 
                 NeedSave = true;
@@ -255,7 +255,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = divBlock;
                     bp.Port = divBlock.PortIN2;
-                    newDivBlock.In1C.Block.Connections.put(newDivBlock.In1C.Block.GetPort(newDivBlock.In2C.Port), bp);
+                    newDivBlock.In2C.Block.Connections.put(newDivBlock.In2C.Block.GetPort(newDivBlock.In2C.Port), bp);
                 }
 
                 if (newDivBlock.OutC != null){
@@ -264,10 +264,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = divBlock;
                     bp.Port = divBlock.PortOUT;
-                    newDivBlock.In1C.Block.Connections.put(newDivBlock.In1C.Block.GetPort(newDivBlock.OutC.Port), bp);
+                    newDivBlock.OutC.Block.Connections.put(newDivBlock.OutC.Block.GetPort(newDivBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(divBlock);
+                design.getChildren().add(divBlock.group);
                 currentScheme.AddBlock(divBlock);
 
                 NeedSave = true;
@@ -302,7 +302,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = pointBlock;
                     bp.Port = pointBlock.PortIN2;
-                    newPointBlock.In1C.Block.Connections.put(newPointBlock.In1C.Block.GetPort(newPointBlock.In2C.Port), bp);
+                    newPointBlock.In2C.Block.Connections.put(newPointBlock.In2C.Block.GetPort(newPointBlock.In2C.Port), bp);
                 }
 
                 if (newPointBlock.OutC != null){
@@ -311,10 +311,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = pointBlock;
                     bp.Port = pointBlock.PortOUT;
-                    newPointBlock.In1C.Block.Connections.put(newPointBlock.In1C.Block.GetPort(newPointBlock.OutC.Port), bp);
+                    newPointBlock.OutC.Block.Connections.put(newPointBlock.OutC.Block.GetPort(newPointBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(pointBlock);
+                design.getChildren().add(pointBlock.group);
                 currentScheme.AddBlock(pointBlock);
 
                 NeedSave = true;
@@ -349,7 +349,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = distanceBlock;
                     bp.Port = distanceBlock.PortIN2;
-                    newDistanceBlock.In1C.Block.Connections.put(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.In2C.Port), bp);
+                    newDistanceBlock.In2C.Block.Connections.put(newDistanceBlock.In2C.Block.GetPort(newDistanceBlock.In2C.Port), bp);
                 }
 
                 if (newDistanceBlock.OutC != null){
@@ -358,10 +358,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = distanceBlock;
                     bp.Port = distanceBlock.PortOUT;
-                    newDistanceBlock.In1C.Block.Connections.put(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.OutC.Port), bp);
+                    newDistanceBlock.OutC.Block.Connections.put(newDistanceBlock.OutC.Block.GetPort(newDistanceBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(distanceBlock);
+                design.getChildren().add(distanceBlock.group);
                 currentScheme.AddBlock(distanceBlock);
 
                 NeedSave = true;
@@ -396,7 +396,7 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = vectorBlock;
                     bp.Port = vectorBlock.PortIN2;
-                    newVectorBlock.In1C.Block.Connections.put(newVectorBlock.In1C.Block.GetPort(newVectorBlock.In2C.Port), bp);
+                    newVectorBlock.In2C.Block.Connections.put(newVectorBlock.In2C.Block.GetPort(newVectorBlock.In2C.Port), bp);
                 }
 
                 if (newVectorBlock.OutC != null){
@@ -405,10 +405,10 @@ public class Designer extends Application {
                     bp = new BlockPort();
                     bp.Block = vectorBlock;
                     bp.Port = vectorBlock.PortOUT;
-                    newVectorBlock.In1C.Block.Connections.put(newVectorBlock.In1C.Block.GetPort(newVectorBlock.OutC.Port), bp);
+                    newVectorBlock.OutC.Block.Connections.put(newVectorBlock.OutC.Block.GetPort(newVectorBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(vectorBlock);
+                design.getChildren().add(vectorBlock.group);
                 currentScheme.AddBlock(vectorBlock);
 
                 NeedSave = true;
@@ -440,7 +440,7 @@ public class Designer extends Application {
                     newStartBlock.In1C.Block.Connections.put(newStartBlock.In1C.Block.GetPort(newStartBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(startBlock);
+                design.getChildren().add(startBlock.group);
                 currentScheme.AddBlock(startBlock);
 
                 NeedSave = true;
@@ -472,7 +472,7 @@ public class Designer extends Application {
                     newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(endBlock);
+                design.getChildren().add(endBlock.group);
                 currentScheme.AddBlock(endBlock);
 
                 NeedSave = true;
@@ -504,7 +504,7 @@ public class Designer extends Application {
                     newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(endBlock);
+                design.getChildren().add(endBlock.group);
                 currentScheme.AddBlock(endBlock);
 
                 NeedSave = true;
@@ -536,7 +536,7 @@ public class Designer extends Application {
                     newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
                 }
 
-                design.getChildren().add(endBlock);
+                design.getChildren().add(endBlock.group);
                 currentScheme.AddBlock(endBlock);
 
                 NeedSave = true;
@@ -591,7 +591,7 @@ public class Designer extends Application {
 
         AddBlock fuckBlock = new AddBlock("Fuck me", newScheme.HeightValue, newScheme.WidthValue);
 
-        design.getChildren().add(fuckBlock);
+        design.getChildren().add(fuckBlock.group);
         currentScheme.AddBlock(fuckBlock);
 
         NeedSave = true;
@@ -627,7 +627,7 @@ public class Designer extends Application {
             {
                 AddBlock fuckBlock = new AddBlock(b.Name, b.PosX, b.PosY);
 
-                design.getChildren().add(fuckBlock);
+                design.getChildren().add(fuckBlock.group);
             }
 
             NeedSave = false;
