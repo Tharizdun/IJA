@@ -7,5 +7,7 @@ public enum BlockType {
     Mul,
     Point,
     Sub,
-    Vector
+    Vector,
+    Start,
+    End
 }

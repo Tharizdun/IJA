@@ -416,6 +416,134 @@ public class Designer extends Application {
         });
         context.getItems().add(mItem);
 
+        mItem = new MenuItem("New Start block");
+        mItem.setOnAction(e ->
+        {
+            StartBlockSpec newStartBlock = new StartBlockSpec();
+            newStartBlock.CurrentScheme = currentScheme;
+            newStartBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Start) + 1;
+
+            if (newStartBlock.CurrentBlock != 1)
+                return;
+
+            if (newStartBlock.Display()) {
+                StartBlock startBlock = new StartBlock("Start", InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newStartBlock.OutC != null){
+                    startBlock.Connections.put(startBlock.PortOUT, newStartBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = startBlock;
+                    bp.Port = startBlock.PortOUT;
+                    newStartBlock.In1C.Block.Connections.put(newStartBlock.In1C.Block.GetPort(newStartBlock.OutC.Port), bp);
+                }
+
+                design.getChildren().add(startBlock);
+                currentScheme.AddBlock(startBlock);
+
+                NeedSave = true;
+            }
+        });
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Vector end block");
+        mItem.setOnAction(e ->
+        {
+            EndBlockSpec newEndBlock = new EndBlockSpec();
+            newEndBlock.CurrentScheme = currentScheme;
+            newEndBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.End) + 1;
+
+            if (newEndBlock.CurrentBlock != 1)
+                return;
+
+            if (newEndBlock.Display("vector2")) {
+                EndVectorBlock endBlock = new EndVectorBlock("End", InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newEndBlock.OutC != null){
+                    endBlock.Connections.put(endBlock.PortIN, newEndBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = endBlock;
+                    bp.Port = endBlock.PortIN;
+                    newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+                }
+
+                design.getChildren().add(endBlock);
+                currentScheme.AddBlock(endBlock);
+
+                NeedSave = true;
+            }
+        });
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Point end block");
+        mItem.setOnAction(e ->
+        {
+            EndBlockSpec newEndBlock = new EndBlockSpec();
+            newEndBlock.CurrentScheme = currentScheme;
+            newEndBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.End) + 1;
+
+            if (newEndBlock.CurrentBlock != 1)
+                return;
+
+            if (newEndBlock.Display("point")) {
+                EndPointBlock endBlock = new EndPointBlock("End", InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newEndBlock.OutC != null){
+                    endBlock.Connections.put(endBlock.PortIN, newEndBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = endBlock;
+                    bp.Port = endBlock.PortIN;
+                    newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+                }
+
+                design.getChildren().add(endBlock);
+                currentScheme.AddBlock(endBlock);
+
+                NeedSave = true;
+            }
+        });
+        context.getItems().add(mItem);
+
+        mItem = new MenuItem("New Double end block");
+        mItem.setOnAction(e ->
+        {
+            EndBlockSpec newEndBlock = new EndBlockSpec();
+            newEndBlock.CurrentScheme = currentScheme;
+            newEndBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.End) + 1;
+
+            if (newEndBlock.CurrentBlock != 1)
+                return;
+
+            if (newEndBlock.Display("double")) {
+                EndDoubleBlock endBlock = new EndDoubleBlock("End", InvokedX, InvokedY);
+
+                BlockPort bp;
+
+                if (newEndBlock.OutC != null){
+                    endBlock.Connections.put(endBlock.PortIN, newEndBlock.OutC);
+
+                    bp = new BlockPort();
+                    bp.Block = endBlock;
+                    bp.Port = endBlock.PortIN;
+                    newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+                }
+
+                design.getChildren().add(endBlock);
+                currentScheme.AddBlock(endBlock);
+
+                NeedSave = true;
+            }
+        });
+        context.getItems().add(mItem);
+
         design = new AnchorPane();
         design.setPrefSize(0, 0);
         design.setStyle("-fx-background-color: DeepSkyBlue");

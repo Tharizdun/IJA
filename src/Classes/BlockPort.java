@@ -20,7 +20,7 @@ public class BlockPort {
 
         String index = "";
 
-        if (Port.PortType == PortType.In)
+        if (Port.PortType == PortType.In && Block.Name.contains("End"))
             index = Integer.toString(Block.Ports.indexOf(Port) + 1);
 
         return Block.Name + " - Port" + Port.PortType.toString() + index;
