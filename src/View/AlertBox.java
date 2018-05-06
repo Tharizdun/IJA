@@ -17,11 +17,22 @@ public class AlertBox {
 
     Stage window;
 
+    /**
+     * Zobrazi alert
+     * @param message Zprava pro alerr
+     * @return Vysledek zobrazeni
+     */
     public static boolean Display(String message)
     {
         return Display(message, "Alert box");
     }
 
+    /**
+     * Zobrazi alert
+     * @param message Zprava
+     * @param title nadpis
+     * @return vysledek
+     */
     public static boolean Display(String message, String title)
     {
 

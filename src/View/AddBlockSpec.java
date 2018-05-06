@@ -21,7 +21,10 @@ import java.util.List;
 
 public class AddBlockSpec extends NewBlockSpec{
 
-
+    /**
+     * Nastaveni hodnot pro Add
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "double");

@@ -18,6 +18,10 @@ import java.util.List;
 
 public class DivBlockSpec extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro Div
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "double");

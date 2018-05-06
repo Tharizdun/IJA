@@ -18,6 +18,10 @@ import java.util.List;
 
 public class SubBlockSpec  extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro Sub
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "double");

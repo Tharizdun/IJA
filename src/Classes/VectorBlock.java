@@ -14,16 +14,29 @@ public class VectorBlock extends Block {
     public PortPoint PortIN2 = new PortPoint(PortType.In, "PortIN2");
     public PortVector PortOUT = new PortVector(PortType.Out, "PortOUT");
 
+    /**
+     * Novy VectorBlock
+     */
     public VectorBlock()
     {
 
     }
 
+    /**
+     * Novy VectorBlock s nazvem
+     * @param name nazev blocku
+     */
     public VectorBlock(String name)
     {
         super(name);
     }
 
+    /**
+     * Novy VectorBlock s nazvem a pozici
+     * @param name Nazev blocku
+     * @param x Souradnice X
+     * @param y Souradnice Y
+     */
     public VectorBlock(String name, double x, double y)
     {
         super(name, x, y, Classes.BlockType.Vector);
@@ -34,6 +47,12 @@ public class VectorBlock extends Block {
         super.AddPortFunctionality();
     }
 
+
+    /**
+     * Ziska port
+     * @param blockPort Port, ktery vrati
+     * @return Port, ktery byl predan argumentem
+     */
     @Override
     public Port GetPort(Port blockPort) {
         if (blockPort == PortOUT)
@@ -45,6 +64,10 @@ public class VectorBlock extends Block {
             return PortIN2;
     }
 
+
+    /**
+     * Provede operaci nad blockem
+     */
     @Override
     public void DoOperation() {
         if (PortIN1 instanceof PortPoint && 
@@ -56,6 +79,10 @@ public class VectorBlock extends Block {
         }
     }
 
+
+    /**
+     * Znovu prida porty
+     */
     @Override
     public void ReAddPorts()
     {
