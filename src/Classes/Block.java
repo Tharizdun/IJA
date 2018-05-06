@@ -43,15 +43,16 @@ public abstract class Block{
         Name = name;
     }
 
-    public Block(String name, double x, double y)
+    public Block(String name, double x, double y, BlockType blockType)
     {
         this(name);
   //      super.setHeight(Height);
     //    super.setWidth(Width);
       //  super.setX(x);
         //super.setY(y);
-        PosX = x;
-        PosY = y;
+        this.PosX = x;
+        this.PosY = y;
+        this.BlockType = blockType;
 
 
         Rectangle blockMain = new Rectangle(this.Width, this.Height, Color.BLACK);
@@ -62,25 +63,42 @@ public abstract class Block{
         blockMainInside.setX(this.PosX+1);
         blockMainInside.setY(this.PosY+1);
 
-        Rectangle port1  = new Rectangle(10,10,Color.BLACK);
-        port1.setX(this.PosX);
-        port1.setY(this.PosY+20);
-
-        Rectangle port2  = new Rectangle(10,10,Color.BLACK);
-        port2.setX(this.PosX);
-        port2.setY(this.PosY+60);
-
-        Rectangle port3  = new Rectangle(10,10,Color.BLACK);
-        port3.setX(this.PosX+Width-10);
-        port3.setY(this.PosY+40);
-
+        this.group = new Group();
         Text t = new Text(this.PosX, this.PosY+this.Height+10, name);
         
+        System.out.println(this.BlockType);
         
+        if (this.BlockType == BlockType.Start){
+            System.out.println("DOES IT GET HERE?");
+            Rectangle port3  = new Rectangle(10,10,Color.BLACK);
+            port3.setX(this.PosX+Width-10);
+            port3.setY(this.PosY+40);
+            
+            this.group.getChildren().addAll(blockMain,blockMainInside,port3,t);
+        }
+        else if (this.BlockType == BlockType.End){
+            Rectangle port1  = new Rectangle(10,10,Color.BLACK);
+            port1.setX(this.PosX);
+            port1.setY(this.PosY+20);
+            
+            this.group.getChildren().addAll(blockMain,blockMainInside,port1,t);
+        }
+        else {
+            Rectangle port1  = new Rectangle(10,10,Color.BLACK);
+            port1.setX(this.PosX);
+            port1.setY(this.PosY+20);
 
-        this.group = new Group();
-        this.group.getChildren().addAll(blockMain,blockMainInside,port1,port2,port3,t);
+            Rectangle port2  = new Rectangle(10,10,Color.BLACK);
+            port2.setX(this.PosX);
+            port2.setY(this.PosY+60);
 
+            Rectangle port3  = new Rectangle(10,10,Color.BLACK);
+            port3.setX(this.PosX+Width-10);
+            port3.setY(this.PosY+40);
+            
+            this.group.getChildren().addAll(blockMain,blockMainInside,port1,port2,port3,t);
+        }
+        
         group.setOnMouseDragged(e ->{
                     double offsetX = e.getSceneX() - orgSceneX;
                     double offsetY = e.getSceneY() - orgSceneY;
@@ -94,6 +112,8 @@ public abstract class Block{
                     this.PosY = ((Rectangle)group.getChildren().get(0)).getY()+ newTranslateY;
 
                     // movement of connected lines
+                    this.refresh();
+                    /*
                     if (((Port)this.Ports.get(0)).connection instanceof Line){
                         ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
                         ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
@@ -106,6 +126,7 @@ public abstract class Block{
                         ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
                         ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
                     }
+                    */
                 }
         );
 
@@ -134,6 +155,8 @@ public abstract class Block{
             this.PosY = ((Rectangle)group.getChildren().get(0)).getY();
 
             // movement of connected lines
+            this.refresh();
+            /*
             if (((Port)this.Ports.get(0)).connection instanceof Line){
                 ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
                 ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
@@ -146,6 +169,7 @@ public abstract class Block{
                 ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
                 ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
             }
+            */
         });
 
     }
@@ -178,16 +202,9 @@ public abstract class Block{
     public void updateConnections(AnchorPane design){
         this.Connections.forEach((k,v) ->{
         if (v.Port.PortType != k.PortType){
-            if (v.Port.PortType == PortType.Out){
-                v.Port.connection = new Line();
-                k.connection = v.Port.connection;
-                design.getChildren().add(k.connection);
-            }
-            else {
-                v.Port.connection = new Line();
-                k.connection = v.Port.connection;
-                design.getChildren().add(k.connection);     
-            }
+            v.Port.connection = new Line();
+            k.connection = v.Port.connection;
+            design.getChildren().add(k.connection);
         }
         this.refresh();
         v.Block.refresh();
@@ -195,7 +212,20 @@ public abstract class Block{
     }
     
     public void refresh(){
-        if (((Port)this.Ports.get(0)).connection instanceof Line){
+        if (this.BlockType == BlockType.Start){
+            if (((Port)this.Ports.get(0)).connection instanceof Line){
+                ((Port)this.Ports.get(0)).connection.setStartX(this.PosX+this.Width-5);
+                ((Port)this.Ports.get(0)).connection.setStartY(this.PosY+45);
+            }
+        }
+        else if (this.BlockType == BlockType.End){
+            if (((Port)this.Ports.get(0)).connection instanceof Line){
+                ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
+                ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+45);
+            }
+        }
+        else {
+            if (((Port)this.Ports.get(0)).connection instanceof Line){
                 ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
                 ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
             }
@@ -207,6 +237,7 @@ public abstract class Block{
                 ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
                 ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
             }
+        }
     }
 
     public abstract Port GetPort(Port blockPort);

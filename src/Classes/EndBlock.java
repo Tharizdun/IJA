@@ -13,7 +13,6 @@ public abstract class EndBlock extends Block {
 
     public EndBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.End;
+        super(name, x, y, Classes.BlockType.End);
     }
 }

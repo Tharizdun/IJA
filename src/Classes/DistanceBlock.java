@@ -26,8 +26,7 @@ public class DistanceBlock extends Block {
 
     public DistanceBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Distance;
+        super(name, x, y, Classes.BlockType.Distance);
 
         Ports.add(PortIN1);
         Ports.add(PortIN2);

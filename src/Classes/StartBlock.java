@@ -18,8 +18,7 @@ public class StartBlock extends Block {
 
     public StartBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Start;
+        super(name, x, y, Classes.BlockType.Start);
 
         Ports.add(PortOUT);
     }

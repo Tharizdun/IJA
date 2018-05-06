@@ -26,8 +26,7 @@ public class MulBlock extends Block {
 
     public MulBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Mul;
+        super(name, x, y, Classes.BlockType.Mul);
 
         Ports.add(PortIN1);
         Ports.add(PortIN2);

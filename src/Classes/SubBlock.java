@@ -26,8 +26,7 @@ public class SubBlock extends Block {
 
     public SubBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Sub;
+        super(name, x, y, Classes.BlockType.Sub);
 
         Ports.add(PortIN1);
         Ports.add(PortIN2);

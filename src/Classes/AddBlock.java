@@ -21,8 +21,7 @@ public class AddBlock extends Block {
 
     public AddBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Add;
+        super(name, x, y,Classes.BlockType.Add);
 
         Ports.add(PortIN1);
         Ports.add(PortIN2);

@@ -444,6 +444,7 @@ public class Designer extends Application {
                     newStartBlock.In1C.Block.Connections.put(newStartBlock.In1C.Block.GetPort(newStartBlock.OutC.Port), bp);
                 }
 
+                startBlock.updateConnections(design);
                 design.getChildren().add(startBlock.group);
                 currentScheme.AddBlock(startBlock);
 
@@ -476,6 +477,7 @@ public class Designer extends Application {
                     newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
                 }
 
+                endBlock.updateConnections(design);
                 design.getChildren().add(endBlock.group);
                 currentScheme.AddBlock(endBlock);
 
@@ -508,6 +510,7 @@ public class Designer extends Application {
                     newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
                 }
 
+                endBlock.updateConnections(design);
                 design.getChildren().add(endBlock.group);
                 currentScheme.AddBlock(endBlock);
 
@@ -540,6 +543,7 @@ public class Designer extends Application {
                     newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
                 }
 
+                endBlock.updateConnections(design);
                 design.getChildren().add(endBlock.group);
                 currentScheme.AddBlock(endBlock);
 

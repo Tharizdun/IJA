@@ -26,8 +26,7 @@ public class DivBlock extends Block {
 
     public DivBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Div;
+        super(name, x, y, Classes.BlockType.Div);
 
         Ports.add(PortIN1);
         Ports.add(PortIN2);

@@ -26,8 +26,7 @@ public class VectorBlock extends Block {
 
     public VectorBlock(String name, double x, double y)
     {
-        super(name, x, y);
-        BlockType = Classes.BlockType.Vector;
+        super(name, x, y, Classes.BlockType.Vector);
 
         Ports.add(PortIN1);
         Ports.add(PortIN2);
