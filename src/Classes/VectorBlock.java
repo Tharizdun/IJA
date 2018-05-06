@@ -55,6 +55,7 @@ public class VectorBlock extends Block {
         }
     }
 
+    @Override
     public void ReAddPorts()
     {
         Ports.clear();

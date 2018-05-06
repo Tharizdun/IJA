@@ -53,6 +53,7 @@ public class SubBlock extends Block {
             PortOUT.value = PortIN1.value - PortIN2.value;
     }
 
+    @Override
     public void ReAddPorts()
     {
         Ports.clear();

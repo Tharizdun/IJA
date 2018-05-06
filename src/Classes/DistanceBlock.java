@@ -56,6 +56,7 @@ public class DistanceBlock extends Block {
                             );
     }
 
+    @Override
     public void ReAddPorts()
     {
         Ports.clear();

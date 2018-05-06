@@ -34,13 +34,6 @@ public class Designer extends Application {
 
     boolean NeedSave = false;
 
-    private Block blok1;
-    private Block blok2;
-    private Block blok3;
-    private Block blok4;
-    private Block blok5;
-    private Block blok6;
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -644,6 +637,7 @@ public class Designer extends Application {
 
             if (newStartBlock.Display()) {
                 StartBlock startBlock = new StartBlock(newStartBlock.BlockName, InvokedX, InvokedY);
+                startBlock.Value = newStartBlock.ValueValue;
 
                 BlockPort bp;
 
@@ -848,8 +842,6 @@ public class Designer extends Application {
 
     public void LoadScheme()
     {
-        currentScheme = new Scheme();
-        design.getChildren().clear();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select XML Scheme");
@@ -858,6 +850,9 @@ public class Designer extends Application {
 
         if (file != null)
         {
+            currentScheme = new Scheme();
+            design.getChildren().clear();
+
             currentScheme.LoadScheme(file.getAbsolutePath());
             SetSchemeSize(currentScheme.GetSchemeTableSize().X, currentScheme.GetSchemeTableSize().Y);
 
@@ -867,7 +862,6 @@ public class Designer extends Application {
 
                 switch (b.BlockType)
                 {
-
                     case Add:
                         fuckBlock = new AddBlock(b.Name, b.PosX, b.PosY);
                         break;
@@ -909,7 +903,7 @@ public class Designer extends Application {
                         break;
                 }
 
-                fuckBlock.ReAddPorts();
+                //fuckBlock.ReAddPorts();
                 design.getChildren().add(fuckBlock.group);
 
     //            currentScheme.BlockDictionary.forEach((k,v) ->
@@ -917,15 +911,13 @@ public class Designer extends Application {
         //            v.updateConnections(design);
           //      });
             }
-
-            NeedSave = false;
-
             currentScheme.RestoreConnections();
 
             for (Block b : currentScheme.BlockDictionary.values())
             {
                 b.updateConnections(design);
             }
+
             NeedSave = false;
         }
     }
@@ -951,7 +943,11 @@ public class Designer extends Application {
     }
 
     public void RunScheme()
-    {}
+    {
+        String res = currentScheme.Run();
+
+        NeedSave = true;
+    }
 
     public void TraceScheme()
     {}

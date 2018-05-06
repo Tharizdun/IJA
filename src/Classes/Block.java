@@ -11,6 +11,9 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,8 +35,8 @@ public class Block implements Serializable{
     public Group group;
 
     public Hashtable<Port, BlockPort> Connections = new Hashtable<>();
-    public Collection<String> StringConnections = new ArrayList<String>();
-    public List<Port> Ports = new ArrayList<Port>();
+    public Collection<String> StringConnections = new ArrayList<>();
+    public List<Port> Ports = new ArrayList<>();
 
     public Block()
     {
@@ -49,6 +52,7 @@ public class Block implements Serializable{
     public Block(String name, double x, double y, BlockType blockType)
     {
         this(name);
+
   //      super.setHeight(Height);
     //    super.setWidth(Width);
       //  super.setX(x);
@@ -200,7 +204,6 @@ public class Block implements Serializable{
     */
     
     public void updateConnections(AnchorPane design){
-        ReAddPorts();
         this.Connections.forEach((k,v) ->{
         if (v.Port.PortType != k.PortType){
             v.Port.connection = new Line();
@@ -208,13 +211,11 @@ public class Block implements Serializable{
             design.getChildren().add(k.connection);
         }
         this.refresh();
-        v.Block.ReAddPorts();
         v.Block.refresh();
         });   
     }
     
     public void refresh(){
-        this.ReAddPorts();
         if (this.BlockType == BlockType.Start){
             if (this.Ports.size() > 0)
             if (((Port)this.Ports.get(0)).connection instanceof Line){

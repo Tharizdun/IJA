@@ -45,6 +45,7 @@ public class PointBlock  extends Block {
             PortOUT.y = PortIN2.value;
     }
 
+    @Override
     public void ReAddPorts()
     {
         Ports.clear();

@@ -11,18 +11,17 @@ import java.beans.XMLEncoder;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javafx.scene.shape.Line;
+import sun.rmi.server.LoaderHandler;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
 
 public class Scheme implements SchemeInterface {
 
     public Hashtable<String, Block> BlockDictionary;
     private ObjectSize TableSize;
     public List<ConnectionInfo> ConnectionDictionary = new ArrayList<>();
+    public List<Block> CountingLine = new ArrayList<>();
+    public List<String> CountingLineNames = new ArrayList<>();
 
     public Scheme()
     {
@@ -188,6 +187,8 @@ public class Scheme implements SchemeInterface {
     {
         for (Block b : BlockDictionary.values())
         {
+            b.ReAddPorts();
+
             for (String con : b.StringConnections)
             {
                 String[] data = con.split(";");
@@ -206,6 +207,8 @@ public class Scheme implements SchemeInterface {
 
                 for (Block fb : BlockDictionary.values())
                 {
+                    fb.ReAddPorts();
+
                     if (fb.Name.hashCode() == data[1].hashCode()) {
                         foreignBlock = fb;
                         break;
@@ -214,7 +217,7 @@ public class Scheme implements SchemeInterface {
 
                 Port foreignPort = new Port();
 
-                for (Port fp : b.Ports)
+                for (Port fp : foreignBlock.Ports)
                 {
                     if (fp.FullName.hashCode() == data[2].hashCode()) {
                         foreignPort = fp;
@@ -229,5 +232,64 @@ public class Scheme implements SchemeInterface {
                 b.Connections.put(ownPort, bp);
             }
         }
+    }
+
+    public String Run()
+    {
+        Block endBlock = BlockDictionary.get("End");
+        CountingLine.clear();
+        LoadBlock(endBlock);
+
+        double res = Count();
+
+        return Double.toString(res);
+    }
+
+    private void LoadBlock(Block b)
+    {
+        CountingLine.add(b);
+        CountingLineNames.add(b.Name);
+        b.Connections.forEach((k,v) ->
+        {
+            if (k.PortType == PortType.In)
+                LoadBlock(v.Block);
+        });
+    }
+
+    private double Count()
+    {
+        List<Block> ss = new ArrayList<>(CountingLine);
+
+        Collections.reverse(ss);
+
+        double res = 0;
+
+        for (Block b : ss)
+        {
+            b.Connections.forEach((k,v) ->
+            {
+               if (k.PortType == PortType.In)
+                   if (k instanceof PortDouble)
+                   {
+                       ((PortDouble)k).value = ((PortDouble)v.Port).value;
+                   }
+                   else if (k instanceof PortPoint) {
+                       ((PortPoint) k).x = ((PortPoint) v.Port).x;
+                       ((PortPoint) k).y = ((PortPoint) v.Port).y;
+                   }
+                   else
+                   {
+                       ((PortVector)k).x = ((PortVector)v.Port).x;
+                       ((PortVector)k).y = ((PortVector)v.Port).y;
+                   }
+            });
+
+            b.DoOperation();
+
+            if (b.Name.hashCode() == "End".hashCode())
+                res = ((EndDoubleBlock)b).Value;
+        }
+
+        return res;
     }
 }
