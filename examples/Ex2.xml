@@ -1,0 +1,1889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_162" class="java.beans.XMLDecoder">
+ <object class="Classes.SchemeStorage" id="SchemeStorage0">
+  <void class="Classes.SchemeStorage" method="getField">
+   <string>TableSize</string>
+   <void method="set">
+    <object idref="SchemeStorage0"/>
+    <object class="Classes.ObjectSize" id="ObjectSize0">
+     <void class="Classes.ObjectSize" method="getField">
+      <string>X</string>
+      <void method="set">
+       <object idref="ObjectSize0"/>
+       <double>500.0</double>
+      </void>
+     </void>
+     <void class="Classes.ObjectSize" method="getField">
+      <string>Y</string>
+      <void method="set">
+       <object idref="ObjectSize0"/>
+       <double>500.0</double>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void class="Classes.SchemeStorage" method="getField">
+   <string>BlockDictionary</string>
+   <void method="set">
+    <object idref="SchemeStorage0"/>
+    <object class="java.util.Hashtable">
+     <void method="put">
+      <string>Vector1</string>
+      <object class="Classes.VectorBlock" id="VectorBlock0">
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="VectorBlock0"/>
+         <string>Vector1</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="VectorBlock0"/>
+         <double>288.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="VectorBlock0"/>
+         <double>198.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="VectorBlock0"/>
+         <object class="java.lang.Enum" method="valueOf">
+          <class>Classes.BlockType</class>
+          <string>Vector</string>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="VectorBlock0"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Point2</string>
+      <object class="Classes.PointBlock" id="PointBlock0">
+       <void class="Classes.PointBlock" method="getField">
+        <string>PortOUT</string>
+        <void method="set">
+         <object idref="PointBlock0"/>
+         <object class="Classes.PortPoint" id="PortPoint0">
+          <void class="Classes.PortPoint" method="getField">
+           <string>x</string>
+           <void method="set">
+            <object idref="PortPoint0"/>
+            <double>10.0</double>
+           </void>
+          </void>
+          <void class="Classes.PortPoint" method="getField">
+           <string>y</string>
+           <void method="set">
+            <object idref="PortPoint0"/>
+            <double>20.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortPoint0"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortPoint0"/>
+            <object class="javafx.scene.shape.Line" id="Line0">
+             <void property="endX">
+              <double>293.0</double>
+             </void>
+             <void property="endY">
+              <double>223.0</double>
+             </void>
+             <void property="startX">
+              <double>192.0</double>
+             </void>
+             <void property="startY">
+              <double>130.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortPoint0"/>
+            <string>PortOUT</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="PointBlock0"/>
+         <string>Point2</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="PointBlock0"/>
+         <double>137.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="PointBlock0"/>
+         <double>85.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="PointBlock0"/>
+         <object class="java.lang.Enum" id="BlockType0" method="valueOf">
+          <class>Classes.BlockType</class>
+          <string>Point</string>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="PointBlock0"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Start4</string>
+      <object class="Classes.StartBlock" id="StartBlock0">
+       <void class="Classes.StartBlock" method="getField">
+        <string>PortOUT</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <object class="Classes.PortDouble" id="PortDouble0">
+          <void class="Classes.PortDouble" method="getField">
+           <string>value</string>
+           <void method="set">
+            <object idref="PortDouble0"/>
+            <double>40.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortDouble0"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortDouble0"/>
+            <object class="javafx.scene.shape.Line" id="Line1">
+             <void property="endX">
+              <double>161.0</double>
+             </void>
+             <void property="endY">
+              <double>390.0</double>
+             </void>
+             <void property="startX">
+              <double>66.0</double>
+             </void>
+             <void property="startY">
+              <double>418.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortDouble0"/>
+            <string>PortOUT</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.StartBlock" method="getField">
+        <string>Value</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <double>40.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <string>Start4</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <double>11.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <double>373.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <object class="java.lang.Enum" id="BlockType1" method="valueOf">
+          <class>Classes.BlockType</class>
+          <string>Start</string>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="StartBlock0"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Point1</string>
+      <object class="Classes.PointBlock" id="PointBlock1">
+       <void class="Classes.PointBlock" method="getField">
+        <string>PortOUT</string>
+        <void method="set">
+         <object idref="PointBlock1"/>
+         <object class="Classes.PortPoint" id="PortPoint1">
+          <void class="Classes.PortPoint" method="getField">
+           <string>x</string>
+           <void method="set">
+            <object idref="PortPoint1"/>
+            <double>30.0</double>
+           </void>
+          </void>
+          <void class="Classes.PortPoint" method="getField">
+           <string>y</string>
+           <void method="set">
+            <object idref="PortPoint1"/>
+            <double>40.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortPoint1"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortPoint1"/>
+            <object class="javafx.scene.shape.Line" id="Line2">
+             <void property="endX">
+              <double>293.0</double>
+             </void>
+             <void property="endY">
+              <double>263.0</double>
+             </void>
+             <void property="startX">
+              <double>211.0</double>
+             </void>
+             <void property="startY">
+              <double>370.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortPoint1"/>
+            <string>PortOUT</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="PointBlock1"/>
+         <string>Point1</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="PointBlock1"/>
+         <double>156.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="PointBlock1"/>
+         <double>325.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="PointBlock1"/>
+         <object idref="BlockType0"/>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="PointBlock1"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Start3</string>
+      <object class="Classes.StartBlock" id="StartBlock1">
+       <void class="Classes.StartBlock" method="getField">
+        <string>PortOUT</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <object class="Classes.PortDouble" id="PortDouble1">
+          <void class="Classes.PortDouble" method="getField">
+           <string>value</string>
+           <void method="set">
+            <object idref="PortDouble1"/>
+            <double>30.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortDouble1"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortDouble1"/>
+            <object class="javafx.scene.shape.Line" id="Line3">
+             <void property="endX">
+              <double>161.0</double>
+             </void>
+             <void property="endY">
+              <double>350.0</double>
+             </void>
+             <void property="startX">
+              <double>69.0</double>
+             </void>
+             <void property="startY">
+              <double>296.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortDouble1"/>
+            <string>PortOUT</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.StartBlock" method="getField">
+        <string>Value</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <double>30.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <string>Start3</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <double>14.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <double>251.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <object idref="BlockType1"/>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="StartBlock1"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Start2</string>
+      <object class="Classes.StartBlock" id="StartBlock2">
+       <void class="Classes.StartBlock" method="getField">
+        <string>PortOUT</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <object class="Classes.PortDouble" id="PortDouble2">
+          <void class="Classes.PortDouble" method="getField">
+           <string>value</string>
+           <void method="set">
+            <object idref="PortDouble2"/>
+            <double>20.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortDouble2"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortDouble2"/>
+            <object class="javafx.scene.shape.Line" id="Line4">
+             <void property="endX">
+              <double>142.0</double>
+             </void>
+             <void property="endY">
+              <double>150.0</double>
+             </void>
+             <void property="startX">
+              <double>73.0</double>
+             </void>
+             <void property="startY">
+              <double>171.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortDouble2"/>
+            <string>PortOUT</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.StartBlock" method="getField">
+        <string>Value</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <double>20.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <string>Start2</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <double>18.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <double>126.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <object idref="BlockType1"/>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="StartBlock2"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Start1</string>
+      <object class="Classes.StartBlock" id="StartBlock3">
+       <void class="Classes.StartBlock" method="getField">
+        <string>PortOUT</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <object class="Classes.PortDouble" id="PortDouble3">
+          <void class="Classes.PortDouble" method="getField">
+           <string>value</string>
+           <void method="set">
+            <object idref="PortDouble3"/>
+            <double>10.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortDouble3"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortDouble3"/>
+            <object class="javafx.scene.shape.Line" id="Line5">
+             <void property="endX">
+              <double>142.0</double>
+             </void>
+             <void property="endY">
+              <double>110.0</double>
+             </void>
+             <void property="startX">
+              <double>69.0</double>
+             </void>
+             <void property="startY">
+              <double>58.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortDouble3"/>
+            <string>PortOUT</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.StartBlock" method="getField">
+        <string>Value</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <double>10.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <string>Start1</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <double>14.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <double>13.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <object idref="BlockType1"/>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="StartBlock3"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>End</string>
+      <object class="Classes.EndVectorBlock" id="EndVectorBlock0">
+       <void class="Classes.EndVectorBlock" method="getField">
+        <string>PortIN</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <object class="Classes.PortVector" id="PortVector0">
+          <void class="Classes.PortVector" method="getField">
+           <string>x</string>
+           <void method="set">
+            <object idref="PortVector0"/>
+            <double>20.0</double>
+           </void>
+          </void>
+          <void class="Classes.PortVector" method="getField">
+           <string>y</string>
+           <void method="set">
+            <object idref="PortVector0"/>
+            <double>20.0</double>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>PortType</string>
+           <void method="set">
+            <object idref="PortVector0"/>
+            <object class="Classes.Port" field="PortType"/>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>connection</string>
+           <void method="set">
+            <object idref="PortVector0"/>
+            <object class="javafx.scene.shape.Line" id="Line6">
+             <void property="endX">
+              <double>406.0</double>
+             </void>
+             <void property="endY">
+              <double>250.0</double>
+             </void>
+             <void property="startX">
+              <double>343.0</double>
+             </void>
+             <void property="startY">
+              <double>243.0</double>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void class="Classes.Port" method="getField">
+           <string>FullName</string>
+           <void method="set">
+            <object idref="PortVector0"/>
+            <string>PortIN</string>
+           </void>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.EndVectorBlock" method="getField">
+        <string>ValueX</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <double>20.0</double>
+        </void>
+       </void>
+       <void class="Classes.EndVectorBlock" method="getField">
+        <string>ValueY</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <double>20.0</double>
+        </void>
+       </void>
+       <void class="Classes.EndBlock" method="getField">
+        <string>EndBlockType</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <object class="java.lang.Enum" method="valueOf">
+          <class>Classes.EndBlockType</class>
+          <string>Vector</string>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>Name</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <string>End</string>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosX</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <double>401.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>PosY</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <double>205.0</double>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>BlockType</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <object class="java.lang.Enum" method="valueOf">
+          <class>Classes.BlockType</class>
+          <string>End</string>
+         </object>
+        </void>
+       </void>
+       <void class="Classes.Block" method="getField">
+        <string>group</string>
+        <void method="set">
+         <object idref="EndVectorBlock0"/>
+         <object class="javafx.scene.Group"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort0">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort0"/>
+     <object idref="PointBlock0"/>
+    </void>
+   </void>
+  </object>
+  <object class="Classes.PointBlock" field="PortIN1"/>
+ </void>
+</void>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort1">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort1"/>
+     <object idref="StartBlock1"/>
+    </void>
+   </void>
+  </object>
+  <object idref="PortDouble1"/>
+ </void>
+</void>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort2">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort2"/>
+     <object idref="PointBlock0"/>
+    </void>
+   </void>
+  </object>
+  <object idref="PortPoint0"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field0" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList0" method="get">
+  <object idref="VectorBlock0"/>
+  <void method="add">
+   <string>PortIN2;Point1;PortOUT</string>
+  </void>
+  <void method="add">
+   <string>PortOUT;End;PortIN</string>
+  </void>
+  <void method="add">
+   <string>PortIN1;Point2;PortOUT</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList0"/>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort3">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort3"/>
+     <object idref="StartBlock2"/>
+    </void>
+   </void>
+  </object>
+  <object idref="PortDouble2"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field1" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList1" method="get">
+  <object idref="PointBlock0"/>
+  <void method="add">
+   <object class="Classes.PointBlock" field="PortIN2"/>
+  </void>
+  <void method="add">
+   <object idref="PortPoint0"/>
+  </void>
+  <void method="add">
+   <object class="Classes.PointBlock" field="PortIN1"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList1"/>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort4">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort4"/>
+     <object idref="EndVectorBlock0"/>
+    </void>
+   </void>
+  </object>
+  <object idref="PortVector0"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field2" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList2" method="get">
+  <object idref="PointBlock0"/>
+  <void method="add">
+   <string>PortIN2;Start2;PortOUT</string>
+  </void>
+  <void method="add">
+   <string>PortOUT;Vector1;PortIN1</string>
+  </void>
+  <void method="add">
+   <string>PortIN1;Start1;PortOUT</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList2"/>
+<void class="Classes.ConnectionInfo" method="getField">
+ <string>bp1</string>
+ <void method="set">
+  <object class="Classes.ConnectionInfo" id="ConnectionInfo0">
+   <void class="Classes.ConnectionInfo" method="getField">
+    <string>bp2</string>
+    <void method="set">
+     <object idref="ConnectionInfo0"/>
+     <object idref="BlockPort2"/>
+    </void>
+   </void>
+  </object>
+  <object class="Classes.BlockPort" id="BlockPort5">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Port</string>
+    <void method="set">
+     <object idref="BlockPort5"/>
+     <object class="Classes.VectorBlock" field="PortIN1"/>
+    </void>
+   </void>
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort5"/>
+     <object idref="VectorBlock0"/>
+    </void>
+   </void>
+  </object>
+ </void>
+</void>
+<void class="Classes.PortDouble" method="getField">
+ <string>value</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN2"/>
+  <double>20.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN2"/>
+  <object idref="Line4"/>
+ </void>
+</void>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort6">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort6"/>
+     <object idref="PointBlock1"/>
+    </void>
+   </void>
+  </object>
+  <object idref="PortPoint1"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field3" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList3" method="get">
+  <object idref="EndVectorBlock0"/>
+  <void method="add">
+   <object idref="PortVector0"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList3"/>
+<void class="Classes.Block" id="Field4" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList4" method="get">
+  <object idref="StartBlock1"/>
+  <void method="add">
+   <string>PortOUT;Point1;PortIN1</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList4"/>
+<void class="Classes.BlockPort" method="getField">
+ <string>Port</string>
+ <void method="set">
+  <object class="Classes.BlockPort" id="BlockPort7">
+   <void class="Classes.BlockPort" method="getField">
+    <string>Block</string>
+    <void method="set">
+     <object idref="BlockPort7"/>
+     <object idref="StartBlock1"/>
+    </void>
+   </void>
+  </object>
+  <object idref="PortDouble1"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field5" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList5" method="get">
+  <object idref="StartBlock1"/>
+  <void method="add">
+   <object idref="PortDouble1"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList5"/>
+<void class="Classes.SchemeStorage" id="Field6" method="getField">
+ <string>ConnectionDictionary</string>
+ <void id="ArrayList6" method="get">
+  <object idref="SchemeStorage0"/>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo1">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo1"/>
+      <object class="Classes.BlockPort" id="BlockPort8">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort8"/>
+         <object class="Classes.VectorBlock" field="PortIN2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort8"/>
+         <object idref="VectorBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo1"/>
+      <object idref="BlockPort6"/>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo2">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo2"/>
+      <object class="Classes.BlockPort" id="BlockPort9">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort9"/>
+         <object class="Classes.VectorBlock" field="PortOUT"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort9"/>
+         <object idref="VectorBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo2"/>
+      <object class="Classes.BlockPort" id="BlockPort10">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort10"/>
+         <object idref="PortVector0"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort10"/>
+         <object idref="EndVectorBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo3">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo3"/>
+      <object class="Classes.BlockPort" id="BlockPort11">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort11"/>
+         <object idref="PortPoint0"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort11"/>
+         <object idref="PointBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo3"/>
+      <object class="Classes.BlockPort" id="BlockPort12">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort12"/>
+         <object class="Classes.VectorBlock" field="PortIN1"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort12"/>
+         <object idref="VectorBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo4">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo4"/>
+      <object idref="BlockPort0"/>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo4"/>
+      <object class="Classes.BlockPort" id="BlockPort13">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort13"/>
+         <object idref="PortDouble3"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort13"/>
+         <object idref="StartBlock3"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo5">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo5"/>
+      <object class="Classes.BlockPort" id="BlockPort14">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort14"/>
+         <object class="Classes.PointBlock" field="PortIN2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort14"/>
+         <object idref="PointBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo5"/>
+      <object class="Classes.BlockPort" id="BlockPort15">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort15"/>
+         <object idref="PortDouble2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort15"/>
+         <object idref="StartBlock2"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo6">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo6"/>
+      <object class="Classes.BlockPort" id="BlockPort16">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort16"/>
+         <object idref="PortDouble0"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort16"/>
+         <object idref="StartBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo6"/>
+      <object class="Classes.BlockPort" id="BlockPort17">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort17"/>
+         <object class="Classes.PointBlock" field="PortIN2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort17"/>
+         <object idref="PointBlock1"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo7">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo7"/>
+      <object class="Classes.BlockPort" id="BlockPort18">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort18"/>
+         <object idref="PortPoint1"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort18"/>
+         <object idref="PointBlock1"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo7"/>
+      <object class="Classes.BlockPort" id="BlockPort19">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort19"/>
+         <object class="Classes.VectorBlock" field="PortIN2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort19"/>
+         <object idref="VectorBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo8">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo8"/>
+      <object class="Classes.BlockPort" id="BlockPort20">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort20"/>
+         <object class="Classes.PointBlock" field="PortIN2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort20"/>
+         <object idref="PointBlock1"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo8"/>
+      <object class="Classes.BlockPort" id="BlockPort21">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort21"/>
+         <object idref="PortDouble0"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort21"/>
+         <object idref="StartBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo9">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo9"/>
+      <object class="Classes.BlockPort" id="BlockPort22">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort22"/>
+         <object class="Classes.PointBlock" field="PortIN1"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort22"/>
+         <object idref="PointBlock1"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo9"/>
+      <object idref="BlockPort1"/>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo10">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo10"/>
+      <object idref="BlockPort7"/>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo10"/>
+      <object class="Classes.BlockPort" id="BlockPort23">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort23"/>
+         <object class="Classes.PointBlock" field="PortIN1"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort23"/>
+         <object idref="PointBlock1"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo11">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo11"/>
+      <object idref="BlockPort3"/>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo11"/>
+      <object class="Classes.BlockPort" id="BlockPort24">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort24"/>
+         <object class="Classes.PointBlock" field="PortIN2"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort24"/>
+         <object idref="PointBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo12">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo12"/>
+      <object class="Classes.BlockPort" id="BlockPort25">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort25"/>
+         <object idref="PortDouble3"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort25"/>
+         <object idref="StartBlock3"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo12"/>
+      <object class="Classes.BlockPort" id="BlockPort26">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort26"/>
+         <object class="Classes.PointBlock" field="PortIN1"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort26"/>
+         <object idref="PointBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Classes.ConnectionInfo" id="ConnectionInfo13">
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp1</string>
+     <void method="set">
+      <object idref="ConnectionInfo13"/>
+      <object idref="BlockPort4"/>
+     </void>
+    </void>
+    <void class="Classes.ConnectionInfo" method="getField">
+     <string>bp2</string>
+     <void method="set">
+      <object idref="ConnectionInfo13"/>
+      <object class="Classes.BlockPort" id="BlockPort27">
+       <void class="Classes.BlockPort" method="getField">
+        <string>Port</string>
+        <void method="set">
+         <object idref="BlockPort27"/>
+         <object class="Classes.VectorBlock" field="PortOUT"/>
+        </void>
+       </void>
+       <void class="Classes.BlockPort" method="getField">
+        <string>Block</string>
+        <void method="set">
+         <object idref="BlockPort27"/>
+         <object idref="VectorBlock0"/>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object idref="ConnectionInfo0"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList6"/>
+<void class="Classes.Block" id="Field7" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList7" method="get">
+  <object idref="StartBlock3"/>
+  <void method="add">
+   <string>PortOUT;Point2;PortIN1</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList7"/>
+<void class="Classes.Block" id="Field8" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable0" method="get">
+  <object idref="EndVectorBlock0"/>
+  <void method="put">
+   <object idref="PortVector0"/>
+   <object idref="BlockPort27"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable0"/>
+<void class="Classes.Block" id="Field9" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList8" method="get">
+  <object idref="StartBlock0"/>
+  <void method="add">
+   <object idref="PortDouble0"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList8"/>
+<void class="Classes.Block" id="Field10" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable1" method="get">
+  <object idref="PointBlock0"/>
+  <void method="put">
+   <object class="Classes.PointBlock" field="PortIN1"/>
+   <object idref="BlockPort13"/>
+  </void>
+  <void method="put">
+   <object idref="PortPoint0"/>
+   <object idref="BlockPort12"/>
+  </void>
+  <void method="put">
+   <object class="Classes.PointBlock" field="PortIN2"/>
+   <object idref="BlockPort15"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable1"/>
+<void class="Classes.Block" id="Field11" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList9" method="get">
+  <object idref="StartBlock2"/>
+  <void method="add">
+   <object idref="PortDouble2"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList9"/>
+<void class="Classes.Block" id="Field12" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList10" method="get">
+  <object idref="VectorBlock0"/>
+  <void method="add">
+   <object class="Classes.VectorBlock" field="PortIN2"/>
+  </void>
+  <void method="add">
+   <object class="Classes.VectorBlock" field="PortOUT"/>
+  </void>
+  <void method="add">
+   <object class="Classes.VectorBlock" field="PortIN1"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList10"/>
+<void class="Classes.PortPoint" method="getField">
+ <string>x</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortIN2"/>
+  <double>30.0</double>
+ </void>
+</void>
+<void class="Classes.PortPoint" method="getField">
+ <string>y</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortIN2"/>
+  <double>40.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortIN2"/>
+  <object idref="Line2"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field13" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable2" method="get">
+  <object idref="PointBlock1"/>
+  <void method="put">
+   <object idref="PortPoint1"/>
+   <object idref="BlockPort19"/>
+  </void>
+  <void method="put">
+   <object class="Classes.PointBlock" field="PortIN2"/>
+   <object idref="BlockPort21"/>
+  </void>
+  <void method="put">
+   <object class="Classes.PointBlock" field="PortIN1"/>
+   <object idref="BlockPort1"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable2"/>
+<void class="Classes.Block" id="Field14" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable3" method="get">
+  <object idref="StartBlock0"/>
+  <void method="put">
+   <object idref="PortDouble0"/>
+   <object idref="BlockPort17"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable3"/>
+<void class="Classes.Block" id="Field15" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList11" method="get">
+  <object idref="StartBlock2"/>
+  <void method="add">
+   <string>PortOUT;Point2;PortIN2</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList11"/>
+<void class="Classes.PortPoint" method="getField">
+ <string>x</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortIN1"/>
+  <double>10.0</double>
+ </void>
+</void>
+<void class="Classes.PortPoint" method="getField">
+ <string>y</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortIN1"/>
+  <double>20.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortIN1"/>
+  <object idref="Line0"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field16" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable4" method="get">
+  <object idref="VectorBlock0"/>
+  <void method="put">
+   <object class="Classes.VectorBlock" field="PortIN2"/>
+   <object idref="BlockPort6"/>
+  </void>
+  <void method="put">
+   <object class="Classes.VectorBlock" field="PortIN1"/>
+   <object idref="BlockPort2"/>
+  </void>
+  <void method="put">
+   <object class="Classes.VectorBlock" field="PortOUT"/>
+   <object idref="BlockPort10"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable4"/>
+<void class="Classes.Block" id="Field17" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList12" method="get">
+  <object idref="PointBlock1"/>
+  <void method="add">
+   <string>PortIN2;Start4;PortOUT</string>
+  </void>
+  <void method="add">
+   <string>PortOUT;Vector1;PortIN2</string>
+  </void>
+  <void method="add">
+   <string>PortIN1;Start3;PortOUT</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList12"/>
+<void class="Classes.PortDouble" method="getField">
+ <string>value</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN1"/>
+  <double>30.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN1"/>
+  <object idref="Line3"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field18" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList13" method="get">
+  <object idref="StartBlock3"/>
+  <void method="add">
+   <object idref="PortDouble3"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList13"/>
+<void class="Classes.Block" id="Field19" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList14" method="get">
+  <object idref="EndVectorBlock0"/>
+  <void method="add">
+   <string>PortIN;Vector1;PortOUT</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList14"/>
+<void class="Classes.PortVector" method="getField">
+ <string>x</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortOUT"/>
+  <double>20.0</double>
+ </void>
+</void>
+<void class="Classes.PortVector" method="getField">
+ <string>y</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortOUT"/>
+  <double>20.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.VectorBlock" field="PortOUT"/>
+  <object idref="Line6"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field20" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable5" method="get">
+  <object idref="StartBlock3"/>
+  <void method="put">
+   <object idref="PortDouble3"/>
+   <object idref="BlockPort26"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable5"/>
+<void class="Classes.PortDouble" method="getField">
+ <string>value</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN2"/>
+  <double>40.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN2"/>
+  <object idref="Line1"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field21" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable6" method="get">
+  <object idref="StartBlock2"/>
+  <void method="put">
+   <object idref="PortDouble2"/>
+   <object idref="BlockPort24"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable6"/>
+<void class="Classes.Block" id="Field22" method="getField">
+ <string>Ports</string>
+ <void id="ArrayList15" method="get">
+  <object idref="PointBlock1"/>
+  <void method="add">
+   <object class="Classes.PointBlock" field="PortIN2"/>
+  </void>
+  <void method="add">
+   <object idref="PortPoint1"/>
+  </void>
+  <void method="add">
+   <object class="Classes.PointBlock" field="PortIN1"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList15"/>
+<void class="Classes.Block" id="Field23" method="getField">
+ <string>Connections</string>
+ <void id="Hashtable7" method="get">
+  <object idref="StartBlock1"/>
+  <void method="put">
+   <object idref="PortDouble1"/>
+   <object idref="BlockPort23"/>
+  </void>
+ </void>
+</void>
+<void idref="Hashtable7"/>
+<void class="Classes.PortDouble" method="getField">
+ <string>value</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN1"/>
+  <double>10.0</double>
+ </void>
+</void>
+<void class="Classes.Port" method="getField">
+ <string>connection</string>
+ <void method="set">
+  <object class="Classes.PointBlock" field="PortIN1"/>
+  <object idref="Line5"/>
+ </void>
+</void>
+<void class="Classes.Block" id="Field24" method="getField">
+ <string>StringConnections</string>
+ <void id="ArrayList16" method="get">
+  <object idref="StartBlock0"/>
+  <void method="add">
+   <string>PortOUT;Point1;PortIN2</string>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList16"/>
+</java>
