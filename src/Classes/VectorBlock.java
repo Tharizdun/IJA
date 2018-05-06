@@ -54,4 +54,12 @@ public class VectorBlock extends Block {
             PortOUT.y = PortIN2.y - PortIN1.y;
         }
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+
+        Ports.add(PortIN1);
+        Ports.add(PortIN2);
+        Ports.add(PortOUT);}
 }

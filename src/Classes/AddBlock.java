@@ -47,4 +47,12 @@ public class AddBlock extends Block {
             
             PortOUT.value = PortIN1.value + PortIN2.value;
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+
+        Ports.add(PortIN1);
+        Ports.add(PortIN2);
+        Ports.add(PortOUT);}
 }

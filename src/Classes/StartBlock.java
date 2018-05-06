@@ -32,4 +32,9 @@ public class StartBlock extends Block {
     public void DoOperation() {
         PortOUT.value = Value;
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+        Ports.add(PortOUT);}
 }

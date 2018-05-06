@@ -19,7 +19,7 @@ import java.util.List;
 
 import javafx.scene.layout.AnchorPane;
 
-public abstract class Block implements Serializable{
+public class Block implements Serializable{
 
     double orgSceneX, orgSceneY;
     double orgTranslateX, orgTranslateY;
@@ -33,7 +33,7 @@ public abstract class Block implements Serializable{
 
     public Hashtable<Port, BlockPort> Connections = new Hashtable<>();
     public Collection<String> StringConnections = new ArrayList<String>();
-    public List Ports = new ArrayList<Port>();
+    public List<Port> Ports = new ArrayList<Port>();
 
     public Block()
     {
@@ -200,6 +200,7 @@ public abstract class Block implements Serializable{
     */
     
     public void updateConnections(AnchorPane design){
+        ReAddPorts();
         this.Connections.forEach((k,v) ->{
         if (v.Port.PortType != k.PortType){
             v.Port.connection = new Line();
@@ -207,32 +208,39 @@ public abstract class Block implements Serializable{
             design.getChildren().add(k.connection);
         }
         this.refresh();
+        v.Block.ReAddPorts();
         v.Block.refresh();
         });   
     }
     
     public void refresh(){
+        this.ReAddPorts();
         if (this.BlockType == BlockType.Start){
+            if (this.Ports.size() > 0)
             if (((Port)this.Ports.get(0)).connection instanceof Line){
                 ((Port)this.Ports.get(0)).connection.setStartX(this.PosX+this.Width-5);
                 ((Port)this.Ports.get(0)).connection.setStartY(this.PosY+45);
             }
         }
         else if (this.BlockType == BlockType.End){
+            if (this.Ports.size() > 0)
             if (((Port)this.Ports.get(0)).connection instanceof Line){
                 ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
                 ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+45);
             }
         }
         else {
+            if (this.Ports.size() > 0)
             if (((Port)this.Ports.get(0)).connection instanceof Line){
                 ((Port)this.Ports.get(0)).connection.setEndX(this.PosX+5);
                 ((Port)this.Ports.get(0)).connection.setEndY(this.PosY+25);
             }
+            if (this.Ports.size() > 1)
             if (((Port)this.Ports.get(1)).connection instanceof Line){
                 ((Port)this.Ports.get(1)).connection.setEndX(this.PosX+5);
                 ((Port)this.Ports.get(1)).connection.setEndY(this.PosY+65);
             }
+            if (this.Ports.size() > 2)
             if (((Port)this.Ports.get(2)).connection instanceof Line){
                 ((Port)this.Ports.get(2)).connection.setStartX(this.PosX+this.Width-5);
                 ((Port)this.Ports.get(2)).connection.setStartY(this.PosY+45);
@@ -240,12 +248,17 @@ public abstract class Block implements Serializable{
         }
     }
 
-    public abstract Port GetPort(Port blockPort);
+    public Port GetPort(Port blockPort)
+    {return new Port();}
 
     public void ResizeScheme(double Height, double Width)
     {
 
     }
 
-    public abstract void DoOperation();
+    public void DoOperation()
+    {}
+
+    public void ReAddPorts()
+    {}
 }

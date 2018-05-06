@@ -44,4 +44,12 @@ public class PointBlock  extends Block {
             PortOUT.x = PortIN1.value;
             PortOUT.y = PortIN2.value;
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+
+        Ports.add(PortIN1);
+        Ports.add(PortIN2);
+        Ports.add(PortOUT);}
 }

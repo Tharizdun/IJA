@@ -32,4 +32,10 @@ public class EndVectorBlock extends EndBlock {
         ValueX = PortIN.x;
         ValueY = PortIN.y;
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+
+        Ports.add(PortIN);}
 }

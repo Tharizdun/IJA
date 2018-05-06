@@ -183,4 +183,51 @@ public class Scheme implements SchemeInterface {
 
         return res;
     }
+
+    public void RestoreConnections()
+    {
+        for (Block b : BlockDictionary.values())
+        {
+            for (String con : b.StringConnections)
+            {
+                String[] data = con.split(";");
+
+                Port ownPort = new Port();
+
+                for (Port p : b.Ports)
+                {
+                    if (p.FullName.hashCode() == data[0].hashCode()) {
+                        ownPort = p;
+                        break;
+                    }
+                }
+
+                Block foreignBlock = new Block();
+
+                for (Block fb : BlockDictionary.values())
+                {
+                    if (fb.Name.hashCode() == data[1].hashCode()) {
+                        foreignBlock = fb;
+                        break;
+                    }
+                }
+
+                Port foreignPort = new Port();
+
+                for (Port fp : b.Ports)
+                {
+                    if (fp.FullName.hashCode() == data[2].hashCode()) {
+                        foreignPort = fp;
+                        break;
+                    }
+                }
+
+                BlockPort bp = new BlockPort();
+                bp.Block = foreignBlock;
+                bp.Port = foreignPort;
+
+                b.Connections.put(ownPort, bp);
+            }
+        }
+    }
 }

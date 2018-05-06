@@ -11,7 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import Classes.*;
@@ -910,6 +909,7 @@ public class Designer extends Application {
                         break;
                 }
 
+                fuckBlock.ReAddPorts();
                 design.getChildren().add(fuckBlock.group);
 
     //            currentScheme.BlockDictionary.forEach((k,v) ->
@@ -918,6 +918,14 @@ public class Designer extends Application {
           //      });
             }
 
+            NeedSave = false;
+
+            currentScheme.RestoreConnections();
+
+            for (Block b : currentScheme.BlockDictionary.values())
+            {
+                b.updateConnections(design);
+            }
             NeedSave = false;
         }
     }

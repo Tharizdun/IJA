@@ -55,4 +55,12 @@ public class DistanceBlock extends Block {
                                 Math.pow(PortIN2.y-PortIN1.y, 2)
                             );
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+
+        Ports.add(PortIN1);
+        Ports.add(PortIN2);
+        Ports.add(PortOUT);}
 }

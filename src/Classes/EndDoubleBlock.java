@@ -30,4 +30,10 @@ public class EndDoubleBlock extends EndBlock {
     public void DoOperation() {
         Value = PortIN.value;
     }
+
+    public void ReAddPorts()
+    {
+        Ports.clear();
+
+        Ports.add(PortIN);}
 }
