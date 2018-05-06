@@ -66,10 +66,7 @@ public abstract class Block{
         this.group = new Group();
         Text t = new Text(this.PosX, this.PosY+this.Height+10, name);
         
-        System.out.println(this.BlockType);
-        
         if (this.BlockType == BlockType.Start){
-            System.out.println("DOES IT GET HERE?");
             Rectangle port3  = new Rectangle(10,10,Color.BLACK);
             port3.setX(this.PosX+Width-10);
             port3.setY(this.PosY+40);
@@ -79,7 +76,7 @@ public abstract class Block{
         else if (this.BlockType == BlockType.End){
             Rectangle port1  = new Rectangle(10,10,Color.BLACK);
             port1.setX(this.PosX);
-            port1.setY(this.PosY+20);
+            port1.setY(this.PosY+40);
             
             this.group.getChildren().addAll(blockMain,blockMainInside,port1,t);
         }
