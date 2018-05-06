@@ -14,16 +14,31 @@ public class DistanceBlock extends Block {
     public PortPoint PortIN2 = new PortPoint(PortType.In, "PortIN2");
     public PortDouble PortOUT = new PortDouble(PortType.Out, "PortOUT");
 
+    /**
+     * Novy DistanceBlock
+     */
     public DistanceBlock()
     {
 
     }
 
+
+    /**
+     * Novy DistanceBlock s nazvem
+     * @param name nazev blocku
+     */
     public DistanceBlock(String name)
     {
         super(name);
     }
 
+
+    /**
+     * Novy DistanceBlock s nazvem a pozici
+     * @param name Nazev blocku
+     * @param x Souradnice X
+     * @param y Souradnice Y
+     */
     public DistanceBlock(String name, double x, double y)
     {
         super(name, x, y, Classes.BlockType.Distance);
@@ -33,6 +48,11 @@ public class DistanceBlock extends Block {
         Ports.add(PortOUT);
     }
 
+    /**
+     * Ziska port
+     * @param blockPort Port, ktery vrati
+     * @return Port, ktery byl predan argumentem
+     */
     @Override
     public Port GetPort(Port blockPort) {
         if (blockPort == PortOUT)
@@ -44,6 +64,9 @@ public class DistanceBlock extends Block {
             return PortIN2;
     }
 
+    /**
+     * Provede operaci nad blockem
+     */
     @Override
     public void DoOperation() {
         if (PortIN1 instanceof PortPoint && 
@@ -56,6 +79,9 @@ public class DistanceBlock extends Block {
                             );
     }
 
+    /**
+     * Znovu prida porty
+     */
     @Override
     public void ReAddPorts()
     {

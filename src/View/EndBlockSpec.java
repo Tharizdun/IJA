@@ -18,6 +18,11 @@ import java.util.List;
 
 public class EndBlockSpec extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro End blck podle typu
+     * @param portTypeName typ end bloku
+     * @return vysledek
+     */
     public boolean Display(String portTypeName)
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, portTypeName);

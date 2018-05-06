@@ -22,6 +22,12 @@ public class NewBlockSpec
     public BlockPort In2C;
     public BlockPort OutC;
 
+    /**
+     * Ziskani vybrane hodnoty
+     * @param selectedValue hodnota
+     * @param freePorts volne porty
+     * @return index vybrane hodnoty
+     */
     public int GetSelectedIndex(String selectedValue, List<BlockPort> freePorts)
     {
         int i = -1;

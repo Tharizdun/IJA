@@ -11,12 +11,20 @@ package Classes;
  */
 public class PortPoint extends Port{
     public double x;
-    public double y;    
-    
+    public double y;
+
+    /**
+     * Vytvori novy point port
+     */
     public PortPoint(){
         Name = "point";
     }
 
+    /**
+     * Vytvori novy point port se jmenem
+     * @param portType typ portu
+     * @param fullName jmeno portu
+     */
     public PortPoint(PortType portType, String fullName)
     {
         this();
@@ -24,6 +32,13 @@ public class PortPoint extends Port{
         this.FullName = fullName;
     }
 
+    /**
+     * Vytvori novy point port s hodnoty, typem a jmenem
+     * @param portType typ portu
+     * @param x hodnota x
+     * @param y hodnota y
+     * @param fullName jmeno portu
+     */
     public PortPoint(PortType portType, double x, double y, String fullName){
         this(portType, fullName);
         this.x = x;

@@ -6,15 +6,30 @@ public class EndPointBlock extends EndBlock {
     public double ValueX;
     public double ValueY;
 
+    /**
+     * Novy EndPointBlock
+     */
     public EndPointBlock()
     {
     }
 
+
+    /**
+     * Novy EndPointBlock s nazvem
+     * @param name nazev blocku
+     */
     public EndPointBlock(String name)
     {
         super(name);
     }
 
+
+    /**
+     * Novy EndPointBlock s nazvem a pozici
+     * @param name Nazev blocku
+     * @param x Souradnice X
+     * @param y Souradnice Y
+     */
     public EndPointBlock(String name, double x, double y)
     {
         super(name, x, y);
@@ -22,17 +37,29 @@ public class EndPointBlock extends EndBlock {
         Ports.add(PortIN);
     }
 
+    /**
+     * Ziska port
+     * @param blockPort Port, ktery vrati
+     * @return Port, ktery byl predan argumentem
+     */
     @Override
     public Port GetPort(Port blockPort) {
         return PortIN;
     }
 
+
+    /**
+     * Provede operaci nad blockem
+     */
     @Override
     public void DoOperation() {
         ValueX = PortIN.x;
         ValueY = PortIN.y;
     }
 
+    /**
+     * Znovu prida porty
+     */
     public void ReAddPorts()
     {
         Ports.clear();

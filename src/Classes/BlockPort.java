@@ -7,7 +7,6 @@ public class BlockPort implements Serializable{
     public Port Port;
     public Block Block;
 
-
     @Override
     public boolean equals(Object o)
     {

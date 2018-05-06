@@ -18,6 +18,10 @@ import java.util.List;
 
 public class DistanceBlockSpec extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro Distance
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "point");

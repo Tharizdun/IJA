@@ -20,6 +20,10 @@ public class StartBlockSpec extends NewBlockSpec{
 
     public double ValueValue;
 
+    /**
+     * Nastaveni hodnot pro Start
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsIn = CurrentScheme.GetFreePorts(PortType.In, "double");
@@ -86,6 +90,11 @@ public class StartBlockSpec extends NewBlockSpec{
         return result;
     }
 
+    /**
+     * Kontrola validnosti double hodnoty ze stringu
+     * @param stringValue hodnota ve stringu
+     * @return hodnota v double
+     */
     public double CheckDoubleValue(String stringValue)
     {
         try {

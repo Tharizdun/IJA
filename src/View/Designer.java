@@ -34,10 +34,18 @@ public class Designer extends Application {
 
     boolean NeedSave = false;
 
+    /**
+     * Main
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Init
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage) {
 
@@ -830,6 +838,9 @@ public class Designer extends Application {
 
     }
 
+    /**
+     * Vytvoreni noveho schema
+     */
     public void CreateNewScheme()
     {
         NewSchemeSet newScheme = new NewSchemeSet();
@@ -844,6 +855,9 @@ public class Designer extends Application {
         }
     }
 
+    /**
+     * Nacteni schema
+     */
     public void LoadScheme()
     {
 
@@ -926,6 +940,11 @@ public class Designer extends Application {
         }
     }
 
+    /**
+     * Nastaveni velikosti schema
+     * @param height Vyska
+     * @param width Sirka
+     */
     public void SetSchemeSize(double height, double width)
     {
         design.setPrefSize(height, width);
@@ -933,6 +952,9 @@ public class Designer extends Application {
         design.setMinSize(height, width);
     }
 
+    /**
+     * Uozeni schema
+     */
     public void SaveScheme()
     {
         FileChooser fileChooser = new FileChooser();
@@ -946,6 +968,9 @@ public class Designer extends Application {
         }
     }
 
+    /**
+     * Spusteni schema
+     */
     public void RunScheme()
     {
         String res = currentScheme.Run();
@@ -953,6 +978,9 @@ public class Designer extends Application {
         ResultText.setText("Run result: " + res);
     }
 
+    /**
+     * Trasovani schema
+     */
     public void TraceScheme()
     {
         String res = currentScheme.Trace();
@@ -960,6 +988,9 @@ public class Designer extends Application {
         ResultText.setText("Trace result: " + res);
     }
 
+    /**
+     * Pred ukonceim
+     */
     public void CloseRequested()
     {
         if (!NeedSave)

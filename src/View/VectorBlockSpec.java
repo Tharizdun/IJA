@@ -18,6 +18,10 @@ import java.util.List;
 
 public class VectorBlockSpec extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro Vector
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "point");

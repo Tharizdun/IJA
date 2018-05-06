@@ -14,16 +14,31 @@ public class DivBlock extends Block {
     public PortDouble PortIN2 = new PortDouble(PortType.In, "PortIN2");
     public PortDouble PortOUT = new PortDouble(PortType.Out, "PortOUT");
 
+    /**
+     * Novy DivBlock
+     */
     public DivBlock()
     {
 
     }
 
+
+    /**
+     * Novy DivBlock s nazvem
+     * @param name nazev blocku
+     */
     public DivBlock(String name)
     {
         super(name);
     }
 
+
+    /**
+     * Novy DivBlock s nazvem a pozici
+     * @param name Nazev blocku
+     * @param x Souradnice X
+     * @param y Souradnice Y
+     */
     public DivBlock(String name, double x, double y)
     {
         super(name, x, y, Classes.BlockType.Div);
@@ -33,6 +48,11 @@ public class DivBlock extends Block {
         Ports.add(PortOUT);
     }
 
+    /**
+     * Ziska port
+     * @param blockPort Port, ktery vrati
+     * @return Port, ktery byl predan argumentem
+     */
     @Override
     public Port GetPort(Port blockPort) {
         if (blockPort == PortOUT)
@@ -44,6 +64,9 @@ public class DivBlock extends Block {
             return PortIN2;
     }
 
+    /**
+     * Provede operaci nad blockem
+     */
     @Override
     public void DoOperation() {
         if (PortIN1 instanceof PortDouble && 
@@ -54,6 +77,9 @@ public class DivBlock extends Block {
                 PortOUT.value = PortIN1.value / PortIN2.value;
     }
 
+    /**
+     * Znovu prida porty
+     */
     @Override
     public void ReAddPorts()
     {

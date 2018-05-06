@@ -18,6 +18,10 @@ import java.util.List;
 
 public class MulBlockSpec  extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro Mul
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "double");

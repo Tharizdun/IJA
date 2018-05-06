@@ -12,17 +12,31 @@ package Classes;
 public class PortDouble extends Port {
     public double value;
 
+    /**
+     * Vytvori novy double port
+     */
     public PortDouble(){
         Name = "double";
     }
 
+    /**
+     * Vytvori novy double port se jmenem
+     * @param portType typ portu
+     * @param fullName jmeno portu
+     */
     public PortDouble(PortType portType, String fullName)
     {
         this();
         PortType = portType;
         this.FullName = fullName;
     }
-    
+
+    /**
+     * Vyvori novy double port s hodnotou a jmenem
+     * @param portType typ portu
+     * @param value hodnota portu
+     * @param fullName jmeno portu
+     */
     public PortDouble(PortType portType, double value, String fullName){
         this(portType, fullName);
         this.value = value;

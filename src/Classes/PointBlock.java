@@ -5,16 +5,31 @@ public class PointBlock  extends Block {
     public PortDouble PortIN2 = new PortDouble(PortType.In, "PortIN2");
     public PortPoint PortOUT = new PortPoint(PortType.Out, "PortOUT");
 
+    /**
+     * Novy PointBlock
+     */
     public PointBlock()
     {
 
     }
 
+
+    /**
+     * Novy PointBlock s nazvem
+     * @param name nazev blocku
+     */
     public PointBlock(String name)
     {
         super(name);
     }
 
+
+    /**
+     * Novy PointBlock s nazvem a pozici
+     * @param name Nazev blocku
+     * @param x Souradnice X
+     * @param y Souradnice Y
+     */
     public PointBlock(String name, double x, double y)
     {
         super(name, x, y, Classes.BlockType.Point);
@@ -24,6 +39,11 @@ public class PointBlock  extends Block {
         Ports.add(PortOUT);
     }
 
+    /**
+     * Ziska port
+     * @param blockPort Port, ktery vrati
+     * @return Port, ktery byl predan argumentem
+     */
     @Override
     public Port GetPort(Port blockPort) {
         if (blockPort == PortOUT)
@@ -35,6 +55,9 @@ public class PointBlock  extends Block {
             return PortIN2;
     }
 
+    /**
+     * Provede operaci nad blockem
+     */
     @Override
     public void DoOperation() {
         if (PortIN1 instanceof PortDouble &&
@@ -45,6 +68,9 @@ public class PointBlock  extends Block {
             PortOUT.y = PortIN2.value;
     }
 
+    /**
+     * Znovu prida porty
+     */
     @Override
     public void ReAddPorts()
     {

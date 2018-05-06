@@ -18,6 +18,10 @@ import java.util.List;
 
 public class PointBlockSpec  extends NewBlockSpec{
 
+    /**
+     * Nastaveni hodnot pro Point
+     * @return Vysledek
+     */
     public boolean Display()
     {
         List<BlockPort> freePortsOut = CurrentScheme.GetFreePorts(PortType.Out, "double");

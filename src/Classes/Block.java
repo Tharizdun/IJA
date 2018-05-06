@@ -38,17 +38,31 @@ public class Block implements Serializable{
     public Collection<String> StringConnections = new ArrayList<>();
     public List<Port> Ports = new ArrayList<>();
 
+    /**
+     * Novy blok
+     */
     public Block()
     {
         //super.setFill(Color.rgb(127, 255, 128));
     }
 
+    /**
+     * Novy blok s nazvem
+     * @param name nazev bloku
+     */
     public Block(String name)
     {
         this();
         Name = name;
     }
 
+    /**
+     * Novy blok s nazvem a pozici a typem
+     * @param name nazev bloku
+     * @param x pozice X
+     * @param y pozice Y
+     * @param blockType typ bloku
+     */
     public Block(String name, double x, double y, BlockType blockType)
     {
         this(name);
@@ -202,7 +216,11 @@ public class Block implements Serializable{
         
     }
     */
-    
+
+    /**
+     * Prekresli linku
+     * @param design zde se to vykresli
+     */
     public void updateConnections(AnchorPane design){
         this.Connections.forEach((k,v) ->{
         if (v.Port.PortType != k.PortType){
@@ -214,7 +232,10 @@ public class Block implements Serializable{
         v.Block.refresh();
         });   
     }
-    
+
+    /**
+     * Obnovi pozice linky
+     */
     public void refresh(){
         if (this.BlockType == BlockType.Start){
             if (this.Ports.size() > 0)
@@ -249,20 +270,29 @@ public class Block implements Serializable{
         }
     }
 
+    /**
+     * Vrati port
+     * @param blockPort Port
+     * @return Port
+     */
     public Port GetPort(Port blockPort)
     {return new Port();}
 
-    public void ResizeScheme(double Height, double Width)
-    {
-
-    }
-
+    /**
+     * Provede operaci nad blokem
+     */
     public void DoOperation()
     {}
 
+    /**
+     * Znovu prida bloky
+     */
     public void ReAddPorts()
     {}
-    
+
+    /**
+     * Zobrazi hodnoty nad porty
+     */
     public void AddPortFunctionality(){
         
         if (this.BlockType == BlockType.Start){

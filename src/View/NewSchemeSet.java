@@ -23,6 +23,10 @@ public class NewSchemeSet{
 
     Stage window;
 
+    /**
+     * Nastaveni hodnot pro nove schema
+     * @return vysledek
+     */
     public boolean Display()
     {
         Stage window = new Stage();
@@ -77,6 +81,11 @@ public class NewSchemeSet{
         return result;
     }
 
+    /**
+     * Kontrolva validnosti cisla
+     * @param stringValue cislo ve stringu
+     * @return int hodnota
+     */
     public int CheckIntValue(String stringValue)
     {
         try {

@@ -27,6 +27,9 @@ public class Scheme implements SchemeInterface {
     private int TraceCurrentIndex = 0;
     private boolean TraceRunning = false;
 
+    /**
+     * Deklarace noveho schema
+     */
     public Scheme()
     {
         BlockDictionary = new Hashtable<String, Block>();
@@ -34,6 +37,11 @@ public class Scheme implements SchemeInterface {
         TableSize = new ObjectSize(0, 0);
     }
 
+    /**
+     * Deklarace noveho schema o velikosti x a y
+     * @param x Rozmer x schema
+     * @param y Rozmer y schema
+     */
     public Scheme(double x, double y)
     {
         BlockDictionary = new Hashtable<String, Block>();
@@ -41,6 +49,11 @@ public class Scheme implements SchemeInterface {
         TableSize = new ObjectSize(x, y);
     }
 
+    /**
+     * Prida blok do schematu
+     * @param newBlock Novy blok
+     * @return Vysledek, zda byl blok pridan
+     */
     @Override
     public boolean AddBlock(Block newBlock) {
 
@@ -58,6 +71,11 @@ public class Scheme implements SchemeInterface {
         return true;
     }
 
+    /**
+     * Odebere blok ze schema
+     * @param blockName Jmeno odebiraneho bloku
+     * @return Vysledek, zda byl blok odebran
+     */
     @Override
     public boolean RemoveBlock(String blockName) {
 
@@ -69,11 +87,21 @@ public class Scheme implements SchemeInterface {
         return true;
     }
 
+    /**
+     * Zjisti velikost schema
+     * @return Velikost schema
+     */
     @Override
     public ObjectSize GetSchemeTableSize() {
         return TableSize.GetObjectSize();
     }
 
+    /**
+     * Nastavi velikost schema
+     * @param x Rozmer x schema
+     * @param y Rozmer Y schema
+     * @return Vysledek, zda byla operace provedena
+     */
     @Override
     public boolean SetSchemeTableSize(double x, double y) {
 
@@ -91,6 +119,10 @@ public class Scheme implements SchemeInterface {
         return true;
     }
 
+    /**
+     * Ulozi schema
+     * @param outputFile Soubor, kam se ulozi schema
+     */
     @Override
     public void SaveScheme(String outputFile) {
 
@@ -132,6 +164,10 @@ public class Scheme implements SchemeInterface {
         {}
     }
 
+    /**
+     * Nacte schema
+     * @param inputFile XML soubor se schematem
+     */
     @Override
     public void LoadScheme(String inputFile) {
         try
@@ -151,6 +187,11 @@ public class Scheme implements SchemeInterface {
         {}
     }
 
+    /**
+     * Zjisti pocet bloku daneho typu
+     * @param blockType Typ bloku
+     * @return Pocet bloku daneho typu
+     */
     public int GetBlockTypeCount(BlockType blockType)
     {
         int i = 0;
@@ -164,6 +205,12 @@ public class Scheme implements SchemeInterface {
         return i;
     }
 
+    /**
+     * Zjisti volne porty
+     * @param portType Typ portu
+     * @param portname Nazev portu
+     * @return List s volnymi porty
+     */
     public List<BlockPort> GetFreePorts(PortType portType, String portname)
     {
         List<BlockPort> res = new ArrayList<>();
@@ -187,6 +234,9 @@ public class Scheme implements SchemeInterface {
         return res;
     }
 
+    /**
+     * Obnovi connections mezi bloky
+     */
     public void RestoreConnections()
     {
         for (Block b : BlockDictionary.values())
@@ -238,6 +288,10 @@ public class Scheme implements SchemeInterface {
         }
     }
 
+    /**
+     * Spusti vypocet
+     * @return Vysledek
+     */
     public String Run()
     {
         TraceRunning = false;
@@ -258,6 +312,11 @@ public class Scheme implements SchemeInterface {
         return (res);
     }
 
+    /**
+     * Nacte bloky pro vypocet
+     * @param b aktualni blok
+     * @return Vysledek nacitani
+     */
     private String LoadBlock(Block b)
     {
         if (!CountingLineNames.contains(b.Name))
@@ -279,6 +338,10 @@ public class Scheme implements SchemeInterface {
         return "";
     }
 
+    /**
+     * Vypocet
+     * @return Vysledek
+     */
     private String Count()
     {
         List<Block> ss = new ArrayList<>(CountingLine);
@@ -327,6 +390,10 @@ public class Scheme implements SchemeInterface {
         return res;
     }
 
+    /**
+     * Trasovani vypoctu
+     * @return Vysledek
+     */
     public String Trace()
     {
         String res = "";
@@ -362,6 +429,11 @@ public class Scheme implements SchemeInterface {
         return res;
     }
 
+    /**
+     * Krok trasovani
+     * @param currentIndex Aktualni index
+     * @return Vysledek akce
+     */
     private String TraceCount(int currentIndex)
     {
         String res = "";
