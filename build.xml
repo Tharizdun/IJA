@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<project name="IJAprojekt" default="main" basedir=".">
+        <property name="src.dir" location="src" />
+        <property name="doc.dir" location="doc" />
+        <property name="build.dir" location="build" />
+	<property name="dest-client.dir" location="dest-client" />
+        <property name="lib.dir" location="lib" />
+        <property name="examples.dir" location="examples" />
+
+        <target name="doc" depends="makedir" description="generate documentation">
+        <javadoc sourcepath="${src.dir}" destdir="${doc.dir}">
+          <fileset dir="${src.dir}" includes="**/*.java"/> 
+        </javadoc>
+        </target>
+
+        <target name="clean">
+                <delete dir="${build.dir}" />
+		<delete dir="${dest-client.dir}" />
+		<delete dir="${doc.dir}" />
+        </target>
+
+        <target name="makedir">
+                <mkdir dir="${build.dir}" />
+                <mkdir dir="${dest-client.dir}" />
+                <mkdir dir="${doc.dir}" />
+        </target>
+
+        <target name="compile" depends="clean, makedir, doc">
+                <javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}" debug="on">
+                </javac>
+                <jar destfile="dest-client/Designer.jar" basedir="dest-client">
+              <manifest>
+                  <attribute name="Main-Class" value="src.View.Designer"/>
+              </manifest>
+              <fileset dir="lib">
+                  <include name="img/**" />
+             </fileset>
+          </jar>
+        </target>
+
+        <target name="run">
+          <java jar="dest-client/Designer.jar" fork="true"/>
+        </target>
+
+        <target name="main" depends="compile, run">
+                <description>Main target</description>
+        </target>
+
+</project>
