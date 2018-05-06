@@ -20,6 +20,7 @@ public class EndVectorBlock extends EndBlock {
         super(name, x, y);
         EndBlockType = EndBlockType.Vector;
         Ports.add(PortIN);
+        super.AddPortFunctionality();
     }
 
     @Override

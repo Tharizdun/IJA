@@ -641,7 +641,6 @@ public class Designer extends Application {
             if (newStartBlock.Display()) {
                 StartBlock startBlock = new StartBlock(newStartBlock.BlockName, InvokedX, InvokedY);
                 startBlock.Value = newStartBlock.ValueValue;
-                startBlock.DoOperation();//?
 
                 BlockPort bp;
 

@@ -206,9 +206,12 @@ public class Block implements Serializable{
     public void updateConnections(AnchorPane design){
         this.Connections.forEach((k,v) ->{
         if (v.Port.PortType != k.PortType){
+            if (!(k.connection instanceof Line))
+            {
             v.Port.connection = new Line();
             k.connection = v.Port.connection;
             design.getChildren().add(k.connection);
+            }
         }
         this.refresh();
         v.Block.refresh();
@@ -268,9 +271,11 @@ public class Block implements Serializable{
         if (this.BlockType == BlockType.Start){
             Rectangle port3=((Rectangle)this.group.getChildren().get(2));
 
-            Text show = new Text(port3.getX()+15, port3.getY()+25,"");
+            Text show = new Text(port3.getX()+25, port3.getY()+25,"");
             port3.setOnMouseEntered(e -> {
                 show.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
+                show.setX(port3.getX()+25);
+                show.setY(port3.getY()+25);
                 this.group.getChildren().add(show);
             });
             port3.setOnMouseExited(e -> {
@@ -278,18 +283,187 @@ public class Block implements Serializable{
             });
         }
         else if (this.BlockType == BlockType.End){
-            Rectangle port3=((Rectangle)this.group.getChildren().get(2));
+            if (((EndBlock)this).EndBlockType == EndBlockType.Double){
+                Rectangle port3=((Rectangle)this.group.getChildren().get(2));
 
-            Text show = new Text(port3.getX()-15, port3.getY()-25,"");
-            port3.setOnMouseEntered(e -> {
-                show.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
-                this.group.getChildren().add(show);
-            });
-            port3.setOnMouseExited(e -> {
-                this.group.getChildren().remove(show);
-            });
+                Text show = new Text(port3.getX()-30, port3.getY()+25,"");
+                port3.setOnMouseEntered(e -> {
+                    show.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
+                    show.setX(port3.getX()-30);
+                    show.setY(port3.getY()+25);
+                    this.group.getChildren().add(show);
+                });
+                port3.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show);
+                });
+            }
+            else if (((EndBlock)this).EndBlockType == EndBlockType.Point){
+                Rectangle port1=((Rectangle)this.group.getChildren().get(2));
+
+                Text show = new Text(port1.getX()-30, port1.getY()+25,"");
+                port1.setOnMouseEntered(e -> {
+                    show.setText(Double.toString(((PortPoint)this.Ports.get(0)).x) + "\n" + Double.toString(((PortPoint)this.Ports.get(0)).y));
+                    show.setX(port1.getX()-30);
+                    show.setY(port1.getY()+25);
+                    this.group.getChildren().add(show);
+                });
+                port1.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show);
+                });
+            }
+            else if (((EndBlock)this).EndBlockType == EndBlockType.Vector){
+                Rectangle port1=((Rectangle)this.group.getChildren().get(2));
+
+                Text show = new Text(port1.getX()-30, port1.getY()+25,"");
+                port1.setOnMouseEntered(e -> {
+                    show.setText(Double.toString(((PortVector)this.Ports.get(0)).x) + "\n" + Double.toString(((PortVector)this.Ports.get(0)).y));
+                    show.setX(port1.getX()-30);
+                    show.setY(port1.getY()+25);
+                    this.group.getChildren().add(show);
+                });
+                port1.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show);
+                });
+            }
         }
-        else {}
+        else {
+            Rectangle port1=((Rectangle)this.group.getChildren().get(2));
+            Rectangle port2=((Rectangle)this.group.getChildren().get(3));
+            Rectangle port3=((Rectangle)this.group.getChildren().get(4));
+
+            Text show1 = new Text(port1.getX()-25, port1.getY()+25,"");
+            Text show2 = new Text(port2.getX()-25, port2.getY()+25,"");
+            Text show3 = new Text(port3.getX()+25, port3.getY()+25,"");
+            
+            if (this.BlockType == BlockType.Add || 
+                this.BlockType == BlockType.Sub ||
+                this.BlockType == BlockType.Mul ||
+                this.BlockType == BlockType.Div
+                ){
+                port1.setOnMouseEntered(e -> {
+                    show1.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
+                    show1.setX(port1.getX()-30);
+                    show1.setY(port1.getY()+25);
+                    this.group.getChildren().add(show1);
+                });
+                port1.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show1);
+                });
+
+                port2.setOnMouseEntered(e -> {
+                    show2.setText(Double.toString(((PortDouble)this.Ports.get(1)).value));
+                    show2.setX(port2.getX()-30);
+                    show2.setY(port2.getY()+25);
+                    this.group.getChildren().add(show2);
+                });
+                port2.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show2);
+                });
+
+                port3.setOnMouseEntered(e -> {
+                    show3.setText(Double.toString(((PortDouble)this.Ports.get(2)).value));
+                    show3.setX(port3.getX()+25);
+                    show3.setY(port3.getY()+25);
+                    this.group.getChildren().add(show3);
+                });
+                port3.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show3);
+                });
+            }
+            else if (this.BlockType == BlockType.Distance){
+                port1.setOnMouseEntered(e -> {
+                    show1.setText(Double.toString(((PortPoint)this.Ports.get(0)).x) + "\n" + Double.toString(((PortPoint)this.Ports.get(0)).y));
+                    show1.setX(port1.getX()-30);
+                    show1.setY(port1.getY()+25);
+                    this.group.getChildren().add(show1);
+                });
+                port1.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show1);
+                });
+
+                port2.setOnMouseEntered(e -> {
+                    show2.setText(Double.toString(((PortPoint)this.Ports.get(1)).x) + "\n" + Double.toString(((PortPoint)this.Ports.get(1)).y));
+                    show2.setX(port2.getX()-30);
+                    show2.setY(port2.getY()+25);
+                    this.group.getChildren().add(show2);
+                });
+                port2.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show2);
+                });
+
+                port3.setOnMouseEntered(e -> {
+                    show3.setText(Double.toString(((PortDouble)this.Ports.get(2)).value));
+                    show3.setX(port3.getX()+25);
+                    show3.setY(port3.getY()+25);
+                    this.group.getChildren().add(show3);
+                });
+                port3.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show3);
+                });
+            }
+            else if (this.BlockType == BlockType.Point){
+                port1.setOnMouseEntered(e -> {
+                    show1.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
+                    show1.setX(port1.getX()-30);
+                    show1.setY(port1.getY()+25);
+                    this.group.getChildren().add(show1);
+                });
+                port1.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show1);
+                });
+
+                port2.setOnMouseEntered(e -> {
+                    show2.setText(Double.toString(((PortDouble)this.Ports.get(1)).value));
+                    show2.setX(port2.getX()-30);
+                    show2.setY(port2.getY()+25);
+                    this.group.getChildren().add(show2);
+                });
+                port2.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show2);
+                });
+
+                port3.setOnMouseEntered(e -> {
+                    show3.setText(Double.toString(((PortPoint)this.Ports.get(2)).x) + "\n" + Double.toString(((PortPoint)this.Ports.get(2)).y));
+                    show3.setX(port3.getX()+25);
+                    show3.setY(port3.getY()+25);
+                    this.group.getChildren().add(show3);
+                });
+                port3.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show3);
+                });
+            }
+            else if (this.BlockType == BlockType.Vector){
+                port1.setOnMouseEntered(e -> {
+                    show1.setText(Double.toString(((PortPoint)this.Ports.get(0)).x) + "\n" + Double.toString(((PortPoint)this.Ports.get(0)).y));
+                    show1.setX(port1.getX()-30);
+                    show1.setY(port1.getY()+25);
+                    this.group.getChildren().add(show1);
+                });
+                port1.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show1);
+                });
+
+                port2.setOnMouseEntered(e -> {
+                    show2.setText(Double.toString(((PortPoint)this.Ports.get(1)).x) + "\n" + Double.toString(((PortPoint)this.Ports.get(1)).y));
+                    show2.setX(port2.getX()-30);
+                    show2.setY(port2.getY()+25);
+                    this.group.getChildren().add(show2);
+                });
+                port2.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show2);
+                });
+
+                port3.setOnMouseEntered(e -> {
+                    show3.setText(Double.toString(((PortVector)this.Ports.get(2)).x) + "\n" + Double.toString(((PortVector)this.Ports.get(2)).y));
+                    show3.setX(port3.getX()+25);
+                    show3.setY(port3.getY()+25);
+                    this.group.getChildren().add(show3);
+                });
+                port3.setOnMouseExited(e -> {
+                    this.group.getChildren().remove(show3);
+                });
+            }
+        }
         
         
         

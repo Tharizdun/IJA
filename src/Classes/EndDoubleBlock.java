@@ -19,6 +19,7 @@ public class EndDoubleBlock extends EndBlock {
         super(name, x, y);
         EndBlockType = EndBlockType.Double;
         Ports.add(PortIN);
+        super.AddPortFunctionality();
     }
 
     @Override

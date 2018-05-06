@@ -31,6 +31,7 @@ public class SubBlock extends Block {
         Ports.add(PortIN1);
         Ports.add(PortIN2);
         Ports.add(PortOUT);
+        super.AddPortFunctionality();
     }
 
     @Override
