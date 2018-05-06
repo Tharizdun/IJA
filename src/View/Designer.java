@@ -953,7 +953,11 @@ public class Designer extends Application {
     }
 
     public void TraceScheme()
-    {}
+    {
+        String res = currentScheme.Trace();
+
+        ResultText.setText("Trace result: " + res);
+    }
 
     public void CloseRequested()
     {

@@ -21,7 +21,11 @@ public class Scheme implements SchemeInterface {
     private ObjectSize TableSize;
     public List<ConnectionInfo> ConnectionDictionary = new ArrayList<>();
     public List<Block> CountingLine = new ArrayList<>();
+    public List<Block> TraceLine = new ArrayList<>();
     public List<String> CountingLineNames = new ArrayList<>();
+    private int TraceLineSize = -1;
+    private int TraceCurrentIndex = 0;
+    private boolean TraceRunning = false;
 
     public Scheme()
     {
@@ -236,6 +240,8 @@ public class Scheme implements SchemeInterface {
 
     public String Run()
     {
+        TraceRunning = false;
+
         Block endBlock = BlockDictionary.get("End");
         CountingLine.clear();
         CountingLineNames.clear();
@@ -312,6 +318,104 @@ public class Scheme implements SchemeInterface {
                     res = "x = (" + ((EndVectorBlock)b).ValueX + ", " + ((EndVectorBlock)b).ValueY + ")";
                 }
         }
+
+        return res;
+    }
+
+    public String Trace()
+    {
+        String res = "";
+
+        if (TraceLineSize != CountingLine.size())
+            TraceRunning = false;
+
+        if (TraceCurrentIndex == TraceLineSize)
+            TraceRunning = false;
+
+        if (!TraceRunning)
+        {
+            TraceCurrentIndex = 0;
+            Block endBlock = BlockDictionary.get("End");
+            CountingLine.clear();
+            CountingLineNames.clear();
+            res = LoadBlock(endBlock);
+
+            TraceLine = CountingLine;
+            Collections.reverse(TraceLine);
+
+            TraceLineSize = CountingLine.size();
+        }
+
+        if (res.hashCode() == "".hashCode()) {
+            TraceRunning = true;
+            res = TraceCount(TraceCurrentIndex);
+            TraceCurrentIndex++;
+        }
+        return res;
+    }
+
+    private String TraceCount(int currentIndex)
+    {
+        String res = "";
+
+        Block b = TraceLine.get(currentIndex);
+
+
+            b.Connections.forEach((k,v) ->
+            {
+                if (k.PortType == PortType.In)
+                    if (k instanceof PortDouble)
+                    {
+                        ((PortDouble)k).value = ((PortDouble)v.Port).value;
+                    }
+                    else if (k instanceof PortPoint) {
+                        ((PortPoint) k).x = ((PortPoint) v.Port).x;
+                        ((PortPoint) k).y = ((PortPoint) v.Port).y;
+                    }
+                    else
+                    {
+                        ((PortVector)k).x = ((PortVector)v.Port).x;
+                        ((PortVector)k).y = ((PortVector)v.Port).y;
+                    }
+            });
+
+            b.DoOperation();
+
+                if (b instanceof EndDoubleBlock)
+                {
+                    res = Double.toString(((EndDoubleBlock)b).Value) + "; Block Name: " + b.Name + " - Trace finished";
+                }
+                else if (b instanceof EndVectorBlock)
+                {
+                    res = "x = (" + ((EndVectorBlock)b).ValueX + ", " + ((EndVectorBlock)b).ValueY + "); Block Name: " + b.Name + " - Trace finished";
+                }
+                else if (b instanceof EndPointBlock) {
+
+                    res = "x [" + ((EndPointBlock)b).ValueX + ", " + ((EndPointBlock)b).ValueY + "]; Block Name: " + b.Name + " - Trace finished";
+                }
+                else if (b instanceof StartBlock)
+                {
+                    res = Double.toString(((StartBlock)b).Value) + "; Block Name: " + b.Name;
+                }
+                else if (b instanceof PointBlock) {
+                    res = "[" + ((PointBlock)b).PortOUT.x + ", " + ((PointBlock)b).PortOUT.y + "]; Block Name: " + b.Name;
+                }
+                else if (b instanceof VectorBlock) {
+
+                    res = "(" + ((VectorBlock) b).PortOUT.x + ", " + ((VectorBlock) b).PortOUT.y + "); Block Name: " + b.Name;
+                }
+                else if (b instanceof AddBlock){
+                    res = Double.toString(((AddBlock) b).PortOUT.value) + "; Block Name: " + b.Name;
+                }
+                else if (b instanceof SubBlock){
+                    res = Double.toString(((SubBlock) b).PortOUT.value) + "; Block Name: " + b.Name;
+                }
+                else if (b instanceof MulBlock){
+                    res = Double.toString(((MulBlock) b).PortOUT.value) + "; Block Name: " + b.Name;
+                }
+                else if (b instanceof DivBlock){
+                    res = Double.toString(((DivBlock) b).PortOUT.value) + "; Block Name: " + b.Name;
+                }
 
         return res;
     }
