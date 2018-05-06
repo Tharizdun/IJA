@@ -71,7 +71,7 @@ public class Block implements Serializable{
         blockMainInside.setY(this.PosY+1);
 
         this.group = new Group();
-        Text t = new Text(this.PosX, this.PosY+this.Height+10, name);
+        Text t = new Text(this.PosX, this.PosY+this.Height+13, name);
         
         if (this.BlockType == BlockType.Start){
             Rectangle port3  = new Rectangle(10,10,Color.BLACK);
@@ -262,4 +262,36 @@ public class Block implements Serializable{
 
     public void ReAddPorts()
     {}
+    
+    public void AddPortFunctionality(){
+        
+        if (this.BlockType == BlockType.Start){
+            Rectangle port3=((Rectangle)this.group.getChildren().get(2));
+
+            Text show = new Text(port3.getX()+15, port3.getY()+25,"");
+            port3.setOnMouseEntered(e -> {
+                show.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
+                this.group.getChildren().add(show);
+            });
+            port3.setOnMouseExited(e -> {
+                this.group.getChildren().remove(show);
+            });
+        }
+        else if (this.BlockType == BlockType.End){
+            Rectangle port3=((Rectangle)this.group.getChildren().get(2));
+
+            Text show = new Text(port3.getX()-15, port3.getY()-25,"");
+            port3.setOnMouseEntered(e -> {
+                show.setText(Double.toString(((PortDouble)this.Ports.get(0)).value));
+                this.group.getChildren().add(show);
+            });
+            port3.setOnMouseExited(e -> {
+                this.group.getChildren().remove(show);
+            });
+        }
+        else {}
+        
+        
+        
+    }
 }

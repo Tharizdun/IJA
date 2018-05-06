@@ -1,6 +1,7 @@
 package Classes;
 
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 public class StartBlock extends Block {
 
@@ -21,6 +22,8 @@ public class StartBlock extends Block {
         super(name, x, y, Classes.BlockType.Start);
 
         Ports.add(PortOUT);
+        super.AddPortFunctionality();
+        
     }
 
     @Override
