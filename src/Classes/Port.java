@@ -3,8 +3,11 @@ package Classes;
 
 import javafx.scene.shape.Line;
 
-public class Port {
+import java.io.Serializable;
+
+public class Port implements Serializable{
     public String Name;
     public PortType PortType;
     public Line connection;
+    public String FullName;
 }

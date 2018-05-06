@@ -22,6 +22,7 @@ public class Scheme implements SchemeInterface {
 
     public Hashtable<String, Block> BlockDictionary;
     private ObjectSize TableSize;
+    public List<ConnectionInfo> ConnectionDictionary = new ArrayList<>();
 
     public Scheme()
     {
@@ -100,6 +101,27 @@ public class Scheme implements SchemeInterface {
             schemeStorage.TableSize = TableSize;
             schemeStorage.BlockDictionary = BlockDictionary;
 
+            List<ConnectionInfo> connections = new ArrayList<>();
+
+            for(Block b : BlockDictionary.values())
+            {
+                b.Connections.forEach((k,v) ->
+                {
+                    ConnectionInfo ci = new ConnectionInfo();
+                    BlockPort bp = new BlockPort();
+
+                    bp.Block = b;
+                    bp.Port = k;
+
+                    ci.bp1 = bp;
+                    ci.bp2 = v;
+
+                    connections.add(ci);
+                });
+            }
+
+            schemeStorage.ConnectionDictionary = connections;
+
             encoderXML.writeObject(schemeStorage);
             encoderXML.close();
         }
@@ -120,6 +142,7 @@ public class Scheme implements SchemeInterface {
 
             TableSize = schemeStorage.TableSize;
             BlockDictionary = schemeStorage.BlockDictionary;
+            ConnectionDictionary = schemeStorage.ConnectionDictionary;
         }
         catch (Exception e)
         {}

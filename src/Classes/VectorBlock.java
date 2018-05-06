@@ -10,9 +10,9 @@ package Classes;
  * @author Modifikator
  */
 public class VectorBlock extends Block {
-    public PortPoint PortIN1 = new PortPoint(PortType.In);
-    public PortPoint PortIN2 = new PortPoint(PortType.In);
-    public PortVector PortOUT = new PortVector(PortType.Out);
+    public PortPoint PortIN1 = new PortPoint(PortType.In, "PortIN1");
+    public PortPoint PortIN2 = new PortPoint(PortType.In, "PortIN2");
+    public PortVector PortOUT = new PortVector(PortType.Out, "PortOUT");
 
     public VectorBlock()
     {

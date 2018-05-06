@@ -3,9 +3,9 @@ package Classes;
 import javafx.scene.shape.Rectangle;
 
 public class AddBlock extends Block {
-    public PortDouble PortIN1 = new PortDouble(PortType.In);
-    public PortDouble PortIN2 = new PortDouble(PortType.In);
-    public PortDouble PortOUT = new PortDouble(PortType.Out);
+    public PortDouble PortIN1 = new PortDouble(PortType.In, "PortIN1");
+    public PortDouble PortIN2 = new PortDouble(PortType.In, "PortIN2");
+    public PortDouble PortOUT = new PortDouble(PortType.Out, "PortOUT");
 
     public AddBlock()
     {

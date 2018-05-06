@@ -102,28 +102,58 @@ public class Designer extends Application {
                 if (newAddBlock.In1C != null) {
                     addBlock.Connections.put(addBlock.PortIN1, newAddBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newAddBlock.In1C.Block.Name;
+                    sbp.PortName = newAddBlock.In1C.Port.FullName;
+                    addBlock.StringConnections.add(addBlock.PortIN1.FullName + ";" + newAddBlock.In1C.Block.Name + ";" + newAddBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = addBlock;
                     bp.Port = addBlock.PortIN1;
                     newAddBlock.In1C.Block.Connections.put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = addBlock.Name;
+                    sbp.PortName = addBlock.PortIN1.FullName;
+                    newAddBlock.In1C.Block.StringConnections.add(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName + ";" + addBlock.Name + ";" + addBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
                 }
 
                 if (newAddBlock.In2C != null){
                     addBlock.Connections.put(addBlock.PortIN2, newAddBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newAddBlock.In2C.Block.Name;
+                    sbp.PortName = newAddBlock.In2C.Port.FullName;
+                    addBlock.StringConnections.add(addBlock.PortIN2.FullName + ";" + newAddBlock.In2C.Block.Name + ";" + newAddBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = addBlock;
                     bp.Port = addBlock.PortIN2;
                     newAddBlock.In2C.Block.Connections.put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = addBlock.Name;
+                    sbp.PortName = addBlock.PortIN2.FullName;
+                    newAddBlock.In2C.Block.StringConnections.add(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName + ";" + addBlock.Name + ";" + addBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newAddBlock.OutC != null){
                     addBlock.Connections.put(addBlock.PortOUT, newAddBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newAddBlock.OutC.Block.Name;
+                    sbp.PortName = newAddBlock.OutC.Port.FullName;
+                    addBlock.StringConnections.add(addBlock.PortOUT.FullName + ";" + newAddBlock.OutC.Block.Name + ";" + newAddBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = addBlock;
                     bp.Port = addBlock.PortOUT;
-                    newAddBlock.OutC.Block.Connections.put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port), bp);   
+                    newAddBlock.OutC.Block.Connections.put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = addBlock.Name;
+                    sbp.PortName = addBlock.PortOUT.FullName;
+                    newAddBlock.OutC.Block.StringConnections.add(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName + ";" + addBlock.Name + ";" + addBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 addBlock.updateConnections(design);
@@ -150,28 +180,58 @@ public class Designer extends Application {
                 if (newSubBlock.In1C != null) {
                     subBlock.Connections.put(subBlock.PortIN1, newSubBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newSubBlock.In1C.Block.Name;
+                    sbp.PortName = newSubBlock.In1C.Port.FullName;
+                    subBlock.StringConnections.add(subBlock.PortIN1.FullName + ";" + newSubBlock.In1C.Block.Name + ";" + newSubBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = subBlock;
                     bp.Port = subBlock.PortIN1;
                     newSubBlock.In1C.Block.Connections.put(newSubBlock.In1C.Block.GetPort(newSubBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = subBlock.Name;
+                    sbp.PortName = subBlock.PortIN1.FullName;
+                    newSubBlock.In1C.Block.StringConnections.add(newSubBlock.In1C.Block.GetPort(newSubBlock.In1C.Port).FullName + ";" + subBlock.Name + ";" + subBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
                 }
 
                 if (newSubBlock.In2C != null){
                     subBlock.Connections.put(subBlock.PortIN2, newSubBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newSubBlock.In2C.Block.Name;
+                    sbp.PortName = newSubBlock.In2C.Port.FullName;
+                    subBlock.StringConnections.add(subBlock.PortIN2.FullName + ";" + newSubBlock.In2C.Block.Name + ";" + newSubBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = subBlock;
                     bp.Port = subBlock.PortIN2;
                     newSubBlock.In2C.Block.Connections.put(newSubBlock.In2C.Block.GetPort(newSubBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = subBlock.Name;
+                    sbp.PortName = subBlock.PortIN2.FullName;
+                    newSubBlock.In2C.Block.StringConnections.add(newSubBlock.In2C.Block.GetPort(newSubBlock.In2C.Port).FullName + ";" + subBlock.Name + ";" + subBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newSubBlock.OutC != null){
                     subBlock.Connections.put(subBlock.PortOUT, newSubBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newSubBlock.OutC.Block.Name;
+                    sbp.PortName = newSubBlock.OutC.Port.FullName;
+                    subBlock.StringConnections.add(subBlock.PortOUT.FullName + ";" + newSubBlock.OutC.Block.Name + ";" + newSubBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = subBlock;
                     bp.Port = subBlock.PortOUT;
                     newSubBlock.OutC.Block.Connections.put(newSubBlock.OutC.Block.GetPort(newSubBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = subBlock.Name;
+                    sbp.PortName = subBlock.PortOUT.FullName;
+                    newSubBlock.OutC.Block.StringConnections.add(newSubBlock.OutC.Block.GetPort(newSubBlock.OutC.Port).FullName + ";" + subBlock.Name + ";" + subBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 subBlock.updateConnections(design);
@@ -198,28 +258,58 @@ public class Designer extends Application {
                 if (newMulBlock.In1C != null) {
                     mulBlock.Connections.put(mulBlock.PortIN1, newMulBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newMulBlock.In1C.Block.Name;
+                    sbp.PortName = newMulBlock.In1C.Port.FullName;
+                    mulBlock.StringConnections.add(mulBlock.PortIN1.FullName + ";" + newMulBlock.In1C.Block.Name + ";" + newMulBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = mulBlock;
                     bp.Port = mulBlock.PortIN1;
                     newMulBlock.In1C.Block.Connections.put(newMulBlock.In1C.Block.GetPort(newMulBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = mulBlock.Name;
+                    sbp.PortName = mulBlock.PortIN1.FullName;
+                    newMulBlock.In1C.Block.StringConnections.add(newMulBlock.In1C.Block.GetPort(newMulBlock.In1C.Port).FullName + ";" + mulBlock.Name + ";" + mulBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
                 }
 
                 if (newMulBlock.In2C != null){
                     mulBlock.Connections.put(mulBlock.PortIN2, newMulBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newMulBlock.In2C.Block.Name;
+                    sbp.PortName = newMulBlock.In2C.Port.FullName;
+                    mulBlock.StringConnections.add(mulBlock.PortIN2.FullName + ";" + newMulBlock.In2C.Block.Name + ";" + newMulBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = mulBlock;
                     bp.Port = mulBlock.PortIN2;
                     newMulBlock.In2C.Block.Connections.put(newMulBlock.In2C.Block.GetPort(newMulBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = mulBlock.Name;
+                    sbp.PortName = mulBlock.PortIN2.FullName;
+                    newMulBlock.In2C.Block.StringConnections.add(newMulBlock.In2C.Block.GetPort(newMulBlock.In2C.Port).FullName + ";" + mulBlock.Name + ";" + mulBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newMulBlock.OutC != null){
                     mulBlock.Connections.put(mulBlock.PortOUT, newMulBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newMulBlock.OutC.Block.Name;
+                    sbp.PortName = newMulBlock.OutC.Port.FullName;
+                    mulBlock.StringConnections.add(mulBlock.PortOUT.FullName + ";" + newMulBlock.OutC.Block.Name + ";" + newMulBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = mulBlock;
                     bp.Port = mulBlock.PortOUT;
                     newMulBlock.OutC.Block.Connections.put(newMulBlock.OutC.Block.GetPort(newMulBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = mulBlock.Name;
+                    sbp.PortName = mulBlock.PortOUT.FullName;
+                    newMulBlock.OutC.Block.StringConnections.add(newMulBlock.OutC.Block.GetPort(newMulBlock.OutC.Port).FullName + ";" + mulBlock.Name + ";" + mulBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 mulBlock.updateConnections(design);
@@ -240,34 +330,64 @@ public class Designer extends Application {
 
             if (newDivBlock.Display()) {
                 DivBlock divBlock = new DivBlock(newDivBlock.BlockName, InvokedX, InvokedY);
-
                 BlockPort bp;
 
                 if (newDivBlock.In1C != null) {
                     divBlock.Connections.put(divBlock.PortIN1, newDivBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newDivBlock.In1C.Block.Name;
+                    sbp.PortName = newDivBlock.In1C.Port.FullName;
+                    divBlock.StringConnections.add(divBlock.PortIN1.FullName + ";" + newDivBlock.In1C.Block.Name + ";" + newDivBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
+
                     bp = new BlockPort();
                     bp.Block = divBlock;
                     bp.Port = divBlock.PortIN1;
                     newDivBlock.In1C.Block.Connections.put(newDivBlock.In1C.Block.GetPort(newDivBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = divBlock.Name;
+                    sbp.PortName = divBlock.PortIN1.FullName;
+                    newDivBlock.In1C.Block.StringConnections.add(newDivBlock.In1C.Block.GetPort(newDivBlock.In1C.Port).FullName + ";" + divBlock.Name + ";" + divBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
                 }
 
                 if (newDivBlock.In2C != null){
                     divBlock.Connections.put(divBlock.PortIN2, newDivBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newDivBlock.In2C.Block.Name;
+                    sbp.PortName = newDivBlock.In2C.Port.FullName;
+                    divBlock.StringConnections.add(divBlock.PortIN2.FullName + ";" + newDivBlock.In2C.Block.Name + ";" + newDivBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = divBlock;
                     bp.Port = divBlock.PortIN2;
                     newDivBlock.In2C.Block.Connections.put(newDivBlock.In2C.Block.GetPort(newDivBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = divBlock.Name;
+                    sbp.PortName = divBlock.PortIN2.FullName;
+                    newDivBlock.In2C.Block.StringConnections.add(newDivBlock.In2C.Block.GetPort(newDivBlock.In2C.Port).FullName + ";" + divBlock.Name + ";" + divBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newDivBlock.OutC != null){
                     divBlock.Connections.put(divBlock.PortOUT, newDivBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newDivBlock.OutC.Block.Name;
+                    sbp.PortName = newDivBlock.OutC.Port.FullName;
+                    divBlock.StringConnections.add(divBlock.PortOUT.FullName + ";" + newDivBlock.OutC.Block.Name + ";" + newDivBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = divBlock;
                     bp.Port = divBlock.PortOUT;
                     newDivBlock.OutC.Block.Connections.put(newDivBlock.OutC.Block.GetPort(newDivBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = divBlock.Name;
+                    sbp.PortName = divBlock.PortOUT.FullName;
+                    newDivBlock.OutC.Block.StringConnections.add(newDivBlock.OutC.Block.GetPort(newDivBlock.OutC.Port).FullName + ";" + divBlock.Name + ";" + divBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 divBlock.updateConnections(design);
@@ -294,28 +414,59 @@ public class Designer extends Application {
                 if (newPointBlock.In1C != null) {
                     pointBlock.Connections.put(pointBlock.PortIN1, newPointBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newPointBlock.In1C.Block.Name;
+                    sbp.PortName = newPointBlock.In1C.Port.FullName;
+                    pointBlock.StringConnections.add(pointBlock.PortIN1.FullName + ";" + newPointBlock.In1C.Block.Name + ";" + newPointBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = pointBlock;
                     bp.Port = pointBlock.PortIN1;
                     newPointBlock.In1C.Block.Connections.put(newPointBlock.In1C.Block.GetPort(newPointBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = pointBlock.Name;
+                    sbp.PortName = pointBlock.PortIN1.FullName;
+                    newPointBlock.In1C.Block.StringConnections.add(newPointBlock.In1C.Block.GetPort(newPointBlock.In1C.Port).FullName + ";" + pointBlock.Name + ";" + pointBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
+
                 }
 
                 if (newPointBlock.In2C != null){
                     pointBlock.Connections.put(pointBlock.PortIN2, newPointBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newPointBlock.In2C.Block.Name;
+                    sbp.PortName = newPointBlock.In2C.Port.FullName;
+                    pointBlock.StringConnections.add(pointBlock.PortIN2.FullName + ";" + newPointBlock.In2C.Block.Name + ";" + newPointBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = pointBlock;
                     bp.Port = pointBlock.PortIN2;
                     newPointBlock.In2C.Block.Connections.put(newPointBlock.In2C.Block.GetPort(newPointBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = pointBlock.Name;
+                    sbp.PortName = pointBlock.PortIN2.FullName;
+                    newPointBlock.In2C.Block.StringConnections.add(newPointBlock.In2C.Block.GetPort(newPointBlock.In2C.Port).FullName + ";" + pointBlock.Name + ";" + pointBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newPointBlock.OutC != null){
                     pointBlock.Connections.put(pointBlock.PortOUT, newPointBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newPointBlock.OutC.Block.Name;
+                    sbp.PortName = newPointBlock.OutC.Port.FullName;
+                    pointBlock.StringConnections.add(pointBlock.PortOUT.FullName + ";" + newPointBlock.OutC.Block.Name + ";" + newPointBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = pointBlock;
                     bp.Port = pointBlock.PortOUT;
                     newPointBlock.OutC.Block.Connections.put(newPointBlock.OutC.Block.GetPort(newPointBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = pointBlock.Name;
+                    sbp.PortName = pointBlock.PortOUT.FullName;
+                    newPointBlock.OutC.Block.StringConnections.add(newPointBlock.OutC.Block.GetPort(newPointBlock.OutC.Port).FullName + ";" + pointBlock.Name + ";" + pointBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 pointBlock.updateConnections(design);
@@ -342,28 +493,59 @@ public class Designer extends Application {
                 if (newDistanceBlock.In1C != null) {
                     distanceBlock.Connections.put(distanceBlock.PortIN1, newDistanceBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newDistanceBlock.In1C.Block.Name;
+                    sbp.PortName = newDistanceBlock.In1C.Port.FullName;
+                    distanceBlock.StringConnections.add(distanceBlock.PortIN1.FullName + ";" + newDistanceBlock.In1C.Block.Name + ";" + newDistanceBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = distanceBlock;
                     bp.Port = distanceBlock.PortIN1;
                     newDistanceBlock.In1C.Block.Connections.put(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = distanceBlock.Name;
+                    sbp.PortName = distanceBlock.PortIN1.FullName;
+                    newDistanceBlock.In1C.Block.StringConnections.add(newDistanceBlock.In1C.Block.GetPort(newDistanceBlock.In1C.Port).FullName + ";" + distanceBlock.Name + ";" + distanceBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
+
                 }
 
                 if (newDistanceBlock.In2C != null){
                     distanceBlock.Connections.put(distanceBlock.PortIN2, newDistanceBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newDistanceBlock.In2C.Block.Name;
+                    sbp.PortName = newDistanceBlock.In2C.Port.FullName;
+                    distanceBlock.StringConnections.add(distanceBlock.PortIN2.FullName + ";" + newDistanceBlock.In2C.Block.Name + ";" + newDistanceBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = distanceBlock;
                     bp.Port = distanceBlock.PortIN2;
                     newDistanceBlock.In2C.Block.Connections.put(newDistanceBlock.In2C.Block.GetPort(newDistanceBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = distanceBlock.Name;
+                    sbp.PortName = distanceBlock.PortIN2.FullName;
+                    newDistanceBlock.In2C.Block.StringConnections.add(newDistanceBlock.In2C.Block.GetPort(newDistanceBlock.In2C.Port).FullName + ";" + distanceBlock.Name + ";" + distanceBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newDistanceBlock.OutC != null){
                     distanceBlock.Connections.put(distanceBlock.PortOUT, newDistanceBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newDistanceBlock.OutC.Block.Name;
+                    sbp.PortName = newDistanceBlock.OutC.Port.FullName;
+                    distanceBlock.StringConnections.add(distanceBlock.PortOUT.FullName + ";" + newDistanceBlock.OutC.Block.Name + ";" + newDistanceBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = distanceBlock;
                     bp.Port = distanceBlock.PortOUT;
                     newDistanceBlock.OutC.Block.Connections.put(newDistanceBlock.OutC.Block.GetPort(newDistanceBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = distanceBlock.Name;
+                    sbp.PortName = distanceBlock.PortOUT.FullName;
+                    newDistanceBlock.OutC.Block.StringConnections.add(newDistanceBlock.OutC.Block.GetPort(newDistanceBlock.OutC.Port).FullName + ";" + distanceBlock.Name + ";" + distanceBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 distanceBlock.updateConnections(design);
@@ -390,28 +572,59 @@ public class Designer extends Application {
                 if (newVectorBlock.In1C != null) {
                     vectorBlock.Connections.put(vectorBlock.PortIN1, newVectorBlock.In1C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newVectorBlock.In1C.Block.Name;
+                    sbp.PortName = newVectorBlock.In1C.Port.FullName;
+                    vectorBlock.StringConnections.add(vectorBlock.PortIN1.FullName + ";" + newVectorBlock.In1C.Block.Name + ";" + newVectorBlock.In1C.Port.FullName);//put(addBlock.PortIN1.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = vectorBlock;
                     bp.Port = vectorBlock.PortIN1;
                     newVectorBlock.In1C.Block.Connections.put(newVectorBlock.In1C.Block.GetPort(newVectorBlock.In1C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = vectorBlock.Name;
+                    sbp.PortName = vectorBlock.PortIN1.FullName;
+                    newVectorBlock.In1C.Block.StringConnections.add(newVectorBlock.In1C.Block.GetPort(newVectorBlock.In1C.Port).FullName + ";" + vectorBlock.Name + ";" + vectorBlock.PortIN1.FullName);//put(newAddBlock.In1C.Block.GetPort(newAddBlock.In1C.Port).FullName, sbp);
+
                 }
 
                 if (newVectorBlock.In2C != null){
                     vectorBlock.Connections.put(vectorBlock.PortIN2, newVectorBlock.In2C);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newVectorBlock.In2C.Block.Name;
+                    sbp.PortName = newVectorBlock.In2C.Port.FullName;
+                    vectorBlock.StringConnections.add(vectorBlock.PortIN2.FullName + ";" + newVectorBlock.In2C.Block.Name + ";" + newVectorBlock.In2C.Port.FullName);//put(addBlock.PortIN2.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = vectorBlock;
                     bp.Port = vectorBlock.PortIN2;
                     newVectorBlock.In2C.Block.Connections.put(newVectorBlock.In2C.Block.GetPort(newVectorBlock.In2C.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = vectorBlock.Name;
+                    sbp.PortName = vectorBlock.PortIN2.FullName;
+                    newVectorBlock.In2C.Block.StringConnections.add(newVectorBlock.In2C.Block.GetPort(newVectorBlock.In2C.Port).FullName + ";" + vectorBlock.Name + ";" + vectorBlock.PortIN2.FullName);//put(newAddBlock.In2C.Block.GetPort(newAddBlock.In2C.Port).FullName, sbp);
                 }
 
                 if (newVectorBlock.OutC != null){
                     vectorBlock.Connections.put(vectorBlock.PortOUT, newVectorBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newVectorBlock.OutC.Block.Name;
+                    sbp.PortName = newVectorBlock.OutC.Port.FullName;
+                    vectorBlock.StringConnections.add(vectorBlock.PortOUT.FullName + ";" + newVectorBlock.OutC.Block.Name + ";" + newVectorBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = vectorBlock;
                     bp.Port = vectorBlock.PortOUT;
                     newVectorBlock.OutC.Block.Connections.put(newVectorBlock.OutC.Block.GetPort(newVectorBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = vectorBlock.Name;
+                    sbp.PortName = vectorBlock.PortOUT.FullName;
+                    newVectorBlock.OutC.Block.StringConnections.add(newVectorBlock.OutC.Block.GetPort(newVectorBlock.OutC.Port).FullName + ";" + vectorBlock.Name + ";" + vectorBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 vectorBlock.updateConnections(design);
@@ -431,17 +644,27 @@ public class Designer extends Application {
             newStartBlock.CurrentBlock = currentScheme.GetBlockTypeCount(BlockType.Start) + 1;
 
             if (newStartBlock.Display()) {
-                StartBlock startBlock = new StartBlock("Start", InvokedX, InvokedY);
+                StartBlock startBlock = new StartBlock(newStartBlock.BlockName, InvokedX, InvokedY);
 
                 BlockPort bp;
 
                 if (newStartBlock.OutC != null){
                     startBlock.Connections.put(startBlock.PortOUT, newStartBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newStartBlock.OutC.Block.Name;
+                    sbp.PortName = newStartBlock.OutC.Port.FullName;
+                    startBlock.StringConnections.add(startBlock.PortOUT.FullName + ";" + newStartBlock.OutC.Block.Name + ";" + newStartBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = startBlock;
                     bp.Port = startBlock.PortOUT;
-                    newStartBlock.In1C.Block.Connections.put(newStartBlock.In1C.Block.GetPort(newStartBlock.OutC.Port), bp);
+                    newStartBlock.OutC.Block.Connections.put(newStartBlock.OutC.Block.GetPort(newStartBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = startBlock.Name;
+                    sbp.PortName = startBlock.PortOUT.FullName;
+                    newStartBlock.OutC.Block.StringConnections.add(newStartBlock.OutC.Block.GetPort(newStartBlock.OutC.Port).FullName + ";" + startBlock.Name + ";" + startBlock.PortOUT.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 startBlock.updateConnections(design);
@@ -471,10 +694,20 @@ public class Designer extends Application {
                 if (newEndBlock.OutC != null){
                     endBlock.Connections.put(endBlock.PortIN, newEndBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newEndBlock.OutC.Block.Name;
+                    sbp.PortName = newEndBlock.OutC.Port.FullName;
+                    endBlock.StringConnections.add(endBlock.PortIN.FullName + ";" + newEndBlock.OutC.Block.Name + ";" + newEndBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = endBlock;
                     bp.Port = endBlock.PortIN;
-                    newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+                    newEndBlock.OutC.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = endBlock.Name;
+                    sbp.PortName = endBlock.PortIN.FullName;
+                    newEndBlock.OutC.Block.StringConnections.add(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port).FullName + ";" + endBlock.Name + ";" + endBlock.PortIN.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 endBlock.updateConnections(design);
@@ -504,10 +737,20 @@ public class Designer extends Application {
                 if (newEndBlock.OutC != null){
                     endBlock.Connections.put(endBlock.PortIN, newEndBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newEndBlock.OutC.Block.Name;
+                    sbp.PortName = newEndBlock.OutC.Port.FullName;
+                    endBlock.StringConnections.add(endBlock.PortIN.FullName + ";" + newEndBlock.OutC.Block.Name + ";" + newEndBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = endBlock;
                     bp.Port = endBlock.PortIN;
-                    newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+                    newEndBlock.OutC.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = endBlock.Name;
+                    sbp.PortName = endBlock.PortIN.FullName;
+                    newEndBlock.OutC.Block.StringConnections.add(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port).FullName + ";" + endBlock.Name + ";" + endBlock.PortIN.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 endBlock.updateConnections(design);
@@ -537,10 +780,20 @@ public class Designer extends Application {
                 if (newEndBlock.OutC != null){
                     endBlock.Connections.put(endBlock.PortIN, newEndBlock.OutC);
 
+                    StringBlockPort sbp = new StringBlockPort();
+                    sbp.BlockName = newEndBlock.OutC.Block.Name;
+                    sbp.PortName = newEndBlock.OutC.Port.FullName;
+                    endBlock.StringConnections.add(endBlock.PortIN.FullName + ";" + newEndBlock.OutC.Block.Name + ";" + newEndBlock.OutC.Port.FullName);//put(addBlock.PortOUT.FullName, sbp);
+
                     bp = new BlockPort();
                     bp.Block = endBlock;
                     bp.Port = endBlock.PortIN;
-                    newEndBlock.In1C.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+                    newEndBlock.OutC.Block.Connections.put(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port), bp);
+
+                    sbp = new StringBlockPort();
+                    sbp.BlockName = endBlock.Name;
+                    sbp.PortName = endBlock.PortIN.FullName;
+                    newEndBlock.OutC.Block.StringConnections.add(newEndBlock.OutC.Block.GetPort(newEndBlock.OutC.Port).FullName + ";" + endBlock.Name + ";" + endBlock.PortIN.FullName);//put(newAddBlock.OutC.Block.GetPort(newAddBlock.OutC.Port).FullName, sbp);
                 }
 
                 endBlock.updateConnections(design);
@@ -580,31 +833,6 @@ public class Designer extends Application {
 
     }
 
-    public void CreateBlock()
-    {
-        ContextMenu context = new ContextMenu();
-        MenuItem sss = new MenuItem("Add block");
-        context.getItems().add(sss);
-        //design.setOnContextMenuRequested();
-
-        //pane, event.getScreenX(), event.getScreenY()
-
-
-
-
-
-
-        NewSchemeSet newScheme = new NewSchemeSet();
-        newScheme.Display();
-
-        AddBlock fuckBlock = new AddBlock("Fuck me", newScheme.HeightValue, newScheme.WidthValue);
-
-        design.getChildren().add(fuckBlock.group);
-        currentScheme.AddBlock(fuckBlock);
-
-        NeedSave = true;
-    }
-
     public void CreateNewScheme()
     {
         NewSchemeSet newScheme = new NewSchemeSet();
@@ -613,6 +841,8 @@ public class Designer extends Application {
             currentScheme = new Scheme(newScheme.HeightValue, newScheme.WidthValue);
             SetSchemeSize(currentScheme.GetSchemeTableSize().X, currentScheme.GetSchemeTableSize().Y);
 
+            design.getChildren().clear();
+
             NeedSave = true;
         }
     }
@@ -620,6 +850,7 @@ public class Designer extends Application {
     public void LoadScheme()
     {
         currentScheme = new Scheme();
+        design.getChildren().clear();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select XML Scheme");
@@ -633,9 +864,58 @@ public class Designer extends Application {
 
             for (Block b : currentScheme.BlockDictionary.values())
             {
-                AddBlock fuckBlock = new AddBlock(b.Name, b.PosX, b.PosY);
+                Block fuckBlock = new AddBlock();
+
+                switch (b.BlockType)
+                {
+
+                    case Add:
+                        fuckBlock = new AddBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Distance:
+                        fuckBlock = new DistanceBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Div:
+                        fuckBlock = new DivBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Mul:
+                        fuckBlock = new MulBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Point:
+                        fuckBlock = new PointBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Sub:
+                        fuckBlock = new SubBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Vector:
+                        fuckBlock = new VectorBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case Start:
+                        fuckBlock = new StartBlock(b.Name, b.PosX, b.PosY);
+                        break;
+                    case End:
+
+                        switch (((EndBlock)b).EndBlockType)
+                        {
+                            case Double:
+                                fuckBlock = new EndDoubleBlock(b.Name, b.PosX, b.PosY);
+                                break;
+                            case Point:
+                                fuckBlock = new EndPointBlock(b.Name, b.PosX, b.PosY);
+                                break;
+                            case Vector:
+                                fuckBlock = new EndVectorBlock(b.Name, b.PosX, b.PosY);
+                                break;
+                        }
+                        break;
+                }
 
                 design.getChildren().add(fuckBlock.group);
+
+    //            currentScheme.BlockDictionary.forEach((k,v) ->
+      //          {
+        //            v.updateConnections(design);
+          //      });
             }
 
             NeedSave = false;
@@ -651,22 +931,6 @@ public class Designer extends Application {
 
     public void SaveScheme()
     {
-        //currentScheme = new Scheme(400, 350);
-
-        //blok1 = new AddBlock("blok1",10, 10);
-        //blok2 = new AddBlock("blok2",20, 10);
-        //blok3 = new AddBlock("blok3",50, 10);
-        //blok4 = new AddBlock("blok4",0, 10);
-        //blok5 = new AddBlock("blok5",90, 10);
-        //blok6 = new AddBlock("blok6",11, 10);
-
-        //currentScheme.AddBlock(blok1);
-        //currentScheme.AddBlock(blok2);
-        //currentScheme.AddBlock(blok3);
-        //currentScheme.AddBlock(blok4);
-        //currentScheme.AddBlock(blok5);
-        //currentScheme.AddBlock(blok6);
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save XML Scheme");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml"));

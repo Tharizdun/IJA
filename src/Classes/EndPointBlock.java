@@ -2,7 +2,7 @@ package Classes;
 
 public class EndPointBlock extends EndBlock {
 
-    public PortPoint PortIN = new PortPoint(PortType.In);
+    public PortPoint PortIN = new PortPoint(PortType.In, "PortIN");
     public double ValueX;
     public double ValueY;
 
@@ -18,7 +18,7 @@ public class EndPointBlock extends EndBlock {
     public EndPointBlock(String name, double x, double y)
     {
         super(name, x, y);
-
+        EndBlockType = EndBlockType.Point;
         Ports.add(PortIN);
     }
 

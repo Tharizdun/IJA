@@ -17,14 +17,15 @@ public class PortVector extends Port {
          Name = "vector2";
     }
 
-    public PortVector(PortType portType)
+    public PortVector(PortType portType, String fullName)
     {
         this();
         PortType = portType;
+        this.FullName = fullName;
     }
     
-    public PortVector(PortType portType, double x, double y){
-        this(portType);
+    public PortVector(PortType portType, double x, double y, String fullName){
+        this(portType, fullName);
         this.x = x;
         this.y = y;
     }

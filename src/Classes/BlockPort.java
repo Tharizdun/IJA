@@ -1,6 +1,8 @@
 package Classes;
 
-public class BlockPort {
+import java.io.Serializable;
+
+public class BlockPort implements Serializable{
 
     public Port Port;
     public Block Block;

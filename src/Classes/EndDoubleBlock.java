@@ -2,7 +2,7 @@ package Classes;
 
 public class EndDoubleBlock extends EndBlock {
 
-    public PortDouble PortIN = new PortDouble(PortType.In);
+    public PortDouble PortIN = new PortDouble(PortType.In, "PortIN");
     public double Value;
 
     public EndDoubleBlock()
@@ -17,7 +17,7 @@ public class EndDoubleBlock extends EndBlock {
     public EndDoubleBlock(String name, double x, double y)
     {
         super(name, x, y);
-
+        EndBlockType = EndBlockType.Double;
         Ports.add(PortIN);
     }
 

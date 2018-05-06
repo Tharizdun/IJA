@@ -2,6 +2,8 @@ package Classes;
 
 public abstract class EndBlock extends Block {
 
+    public EndBlockType EndBlockType;
+
     public EndBlock()
     {
     }

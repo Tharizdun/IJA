@@ -11,13 +11,15 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Hashtable;
 import java.util.List;
 
 import javafx.scene.layout.AnchorPane;
 
-public abstract class Block{
+public abstract class Block implements Serializable{
 
     double orgSceneX, orgSceneY;
     double orgTranslateX, orgTranslateY;
@@ -30,6 +32,7 @@ public abstract class Block{
     public Group group;
 
     public Hashtable<Port, BlockPort> Connections = new Hashtable<>();
+    public Collection<String> StringConnections = new ArrayList<String>();
     public List Ports = new ArrayList<Port>();
 
     public Block()

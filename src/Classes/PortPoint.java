@@ -17,15 +17,17 @@ public class PortPoint extends Port{
         Name = "point";
     }
 
-    public PortPoint(PortType portType)
+    public PortPoint(PortType portType, String fullName)
     {
         this();
         PortType = portType;
+        this.FullName = fullName;
     }
 
-    public PortPoint(PortType portType, double x, double y){
-        this(portType);
+    public PortPoint(PortType portType, double x, double y, String fullName){
+        this(portType, fullName);
         this.x = x;
         this.y = y;
+        this.FullName = fullName;
     }
 }

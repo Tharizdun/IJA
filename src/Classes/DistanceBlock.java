@@ -10,9 +10,9 @@ package Classes;
  * @author Modifikator
  */
 public class DistanceBlock extends Block {
-    public PortPoint PortIN1 = new PortPoint(PortType.In);
-    public PortPoint PortIN2 = new PortPoint(PortType.In);
-    public PortDouble PortOUT = new PortDouble(PortType.Out);
+    public PortPoint PortIN1 = new PortPoint(PortType.In, "PortIN1");
+    public PortPoint PortIN2 = new PortPoint(PortType.In, "PortIN2");
+    public PortDouble PortOUT = new PortDouble(PortType.Out, "PortOUT");
 
     public DistanceBlock()
     {

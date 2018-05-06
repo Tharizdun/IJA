@@ -16,14 +16,16 @@ public class PortDouble extends Port {
         Name = "double";
     }
 
-    public PortDouble(PortType portType)
+    public PortDouble(PortType portType, String fullName)
     {
         this();
         PortType = portType;
+        this.FullName = fullName;
     }
     
-    public PortDouble(PortType portType, double value){
-        this(portType);
+    public PortDouble(PortType portType, double value, String fullName){
+        this(portType, fullName);
         this.value = value;
+        this.FullName = fullName;
     }
 }

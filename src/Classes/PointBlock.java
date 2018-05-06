@@ -1,9 +1,9 @@
 package Classes;
 
 public class PointBlock  extends Block {
-    public PortDouble PortIN1 = new PortDouble(PortType.In);
-    public PortDouble PortIN2 = new PortDouble(PortType.In);
-    public PortPoint PortOUT = new PortPoint(PortType.Out);
+    public PortDouble PortIN1 = new PortDouble(PortType.In, "PortIN1");
+    public PortDouble PortIN2 = new PortDouble(PortType.In, "PortIN2");
+    public PortPoint PortOUT = new PortPoint(PortType.Out, "PortOUT");
 
     public PointBlock()
     {

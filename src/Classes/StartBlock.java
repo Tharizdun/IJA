@@ -4,7 +4,7 @@ import javafx.scene.shape.Rectangle;
 
 public class StartBlock extends Block {
 
-    public PortDouble PortOUT = new PortDouble(PortType.Out);
+    public PortDouble PortOUT = new PortDouble(PortType.Out, "PortOUT");
     public double Value;
 
     public StartBlock()

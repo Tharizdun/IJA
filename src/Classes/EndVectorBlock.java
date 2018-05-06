@@ -2,7 +2,7 @@ package Classes;
 
 public class EndVectorBlock extends EndBlock {
 
-    public PortVector PortIN = new PortVector(PortType.In);
+    public PortVector PortIN = new PortVector(PortType.In, "PortIN");
     public double ValueX;
     public double ValueY;
 
@@ -18,7 +18,7 @@ public class EndVectorBlock extends EndBlock {
     public EndVectorBlock(String name, double x, double y)
     {
         super(name, x, y);
-
+        EndBlockType = EndBlockType.Vector;
         Ports.add(PortIN);
     }
 
