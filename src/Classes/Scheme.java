@@ -238,31 +238,43 @@ public class Scheme implements SchemeInterface {
     {
         Block endBlock = BlockDictionary.get("End");
         CountingLine.clear();
-        LoadBlock(endBlock);
+        CountingLineNames.clear();
+        String res = LoadBlock(endBlock);
 
-        double res = Count();
+        if (res.hashCode() == "".hashCode())
+            res = Count();
 
-        return Double.toString(res);
+        return (res);
     }
 
-    private void LoadBlock(Block b)
+    private String LoadBlock(Block b)
     {
+        if (!CountingLineNames.contains(b.Name))
+            CountingLineNames.add(b.Name);
+        else
+            return "Cycle detected !!!";
+
         CountingLine.add(b);
-        CountingLineNames.add(b.Name);
+
+        if (b.Ports.size() != b.Connections.size())
+            return "Free ports !!!";
+
         b.Connections.forEach((k,v) ->
         {
             if (k.PortType == PortType.In)
                 LoadBlock(v.Block);
         });
+
+        return "";
     }
 
-    private double Count()
+    private String Count()
     {
         List<Block> ss = new ArrayList<>(CountingLine);
 
         Collections.reverse(ss);
 
-        double res = 0;
+        String res = "";
 
         for (Block b : ss)
         {
@@ -287,7 +299,18 @@ public class Scheme implements SchemeInterface {
             b.DoOperation();
 
             if (b.Name.hashCode() == "End".hashCode())
-                res = ((EndDoubleBlock)b).Value;
+                if (b instanceof EndDoubleBlock)
+                {
+                    res = Double.toString(((EndDoubleBlock)b).Value);
+                }
+                else if (b instanceof EndPointBlock) {
+
+                    res = "x [" + ((EndPointBlock)b).ValueX + ", " + ((EndPointBlock)b).ValueY + "]";
+                }
+                else
+                {
+                    res = "x = (" + ((EndVectorBlock)b).ValueX + ", " + ((EndVectorBlock)b).ValueY + ")";
+                }
         }
 
         return res;

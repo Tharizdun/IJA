@@ -1,11 +1,9 @@
 package View;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -15,6 +13,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import Classes.*;
 
+import javax.xml.transform.Result;
 import java.io.File;
 
 public class Designer extends Application {
@@ -24,6 +23,7 @@ public class Designer extends Application {
     Button SaveButton;
     Button RunButton;
     Button TraceButton;
+    Label ResultText;
 
     ScrollPane designScroll;
 
@@ -71,8 +71,11 @@ public class Designer extends Application {
         TraceButton = new Button("Trace");
         TraceButton.setOnAction(e -> TraceScheme());
 
+        ResultText = new Label("");
+        ResultText.setPadding(new Insets(5));
+
         HBox TopMenu = new HBox(5);
-        TopMenu.getChildren().addAll(NewButton, LoadButton, SaveButton, RunButton, TraceButton);
+        TopMenu.getChildren().addAll(NewButton, LoadButton, SaveButton, RunButton, TraceButton, ResultText);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(TopMenu);
@@ -946,7 +949,7 @@ public class Designer extends Application {
     {
         String res = currentScheme.Run();
 
-        NeedSave = true;
+        ResultText.setText("Run result: " + res);
     }
 
     public void TraceScheme()
