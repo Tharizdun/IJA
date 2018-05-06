@@ -35,6 +35,7 @@ public class EndPointBlock extends EndBlock {
         super(name, x, y);
         EndBlockType = EndBlockType.Point;
         Ports.add(PortIN);
+        super.AddPortFunctionality();
     }
 
     /**
