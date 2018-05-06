@@ -208,10 +208,36 @@ public class Block implements Serializable{
         if (v.Port.PortType != k.PortType){
             if (!(k.connection instanceof Line))
             {
-            v.Port.connection = new Line();
+            Line line = new Line();
+            v.Port.connection = line;
             k.connection = v.Port.connection;
-            design.getChildren().add(k.connection);
-            }
+            design.getChildren().add(line);
+            this.refresh();
+            v.Block.refresh();
+        
+            
+            Text show = new Text(
+                                ((line.getStartX()+line.getEndX())/2),
+                                ((line.getStartY()+line.getEndY())/2+20),
+                                "");
+            
+            line.setOnMouseEntered(e -> {
+                if (k.Name == "double") show.setText(k.Name + "\n" + ((PortDouble)k).value);
+                else
+                if (k.Name == "point") show.setText(k.Name + "\n" + ((PortPoint)k).x + "\n" + ((PortPoint)k).y);
+                else
+                if (k.Name == "vector2") show.setText(k.Name + "\n" + ((PortVector)k).x + "\n" + ((PortVector)k).y);
+                else show.setText("??? CONFUSED ???");
+                show.setX((line.getStartX()+line.getEndX())/2);
+                show.setY((line.getStartY()+line.getEndY())/2+20);
+                design.getChildren().add(show);
+            });
+            
+            line.setOnMouseExited(e -> {
+                design.getChildren().remove(show);
+            });
+            
+            }  
         }
         this.refresh();
         v.Block.refresh();
