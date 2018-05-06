@@ -242,10 +242,15 @@ public class Scheme implements SchemeInterface {
     {
         TraceRunning = false;
 
+        String res = "";
+
+        if (!BlockDictionary.containsKey("End"))
+            return "End not found";
+
         Block endBlock = BlockDictionary.get("End");
         CountingLine.clear();
         CountingLineNames.clear();
-        String res = LoadBlock(endBlock);
+        res = LoadBlock(endBlock);
 
         if (res.hashCode() == "".hashCode())
             res = Count();
@@ -325,6 +330,9 @@ public class Scheme implements SchemeInterface {
     public String Trace()
     {
         String res = "";
+
+        if (!BlockDictionary.containsKey("End"))
+            return "End not found";
 
         if (TraceLineSize != CountingLine.size())
             TraceRunning = false;
