@@ -352,6 +352,7 @@ public class Scheme implements SchemeInterface {
 
         for (Block b : ss)
         {
+            b.isHighlighted(true);
             b.Connections.forEach((k,v) ->
             {
                if (k.PortType == PortType.In)
@@ -385,6 +386,7 @@ public class Scheme implements SchemeInterface {
                 {
                     res = "x = (" + ((EndVectorBlock)b).ValueX + ", " + ((EndVectorBlock)b).ValueY + ")";
                 }
+            b.isHighlighted(false);
         }
 
         return res;
@@ -415,6 +417,9 @@ public class Scheme implements SchemeInterface {
             CountingLineNames.clear();
             res = LoadBlock(endBlock);
 
+            for (Block b : CountingLine)
+                b.isHighlighted(false);
+
             TraceLine = CountingLine;
             Collections.reverse(TraceLine);
 
@@ -438,8 +443,14 @@ public class Scheme implements SchemeInterface {
     {
         String res = "";
 
+        if (currentIndex > 0) {
+
+            (TraceLine.get(currentIndex - 1)).isHighlighted(false);
+        }
+
         Block b = TraceLine.get(currentIndex);
 
+        b.isHighlighted(true);
 
             b.Connections.forEach((k,v) ->
             {
@@ -496,7 +507,6 @@ public class Scheme implements SchemeInterface {
                 else if (b instanceof DivBlock){
                     res = Double.toString(((DivBlock) b).PortOUT.value) + "; Block Name: " + b.Name;
                 }
-
         return res;
     }
 }
