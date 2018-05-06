@@ -524,4 +524,15 @@ public class Block implements Serializable{
         
         
     }
+    /**
+     * Zvyrazni zpracovavany blok
+     */
+    public void isHighlighted(boolean bool){
+        if (bool){
+            ((Rectangle)this.group.getChildren().get(1)).setFill(Color.GREENYELLOW);
+        }
+        else{
+            ((Rectangle)this.group.getChildren().get(1)).setFill(Color.WHITESMOKE);
+        }
+    }
 }
